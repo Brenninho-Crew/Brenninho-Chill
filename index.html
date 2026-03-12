@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brenninho's Chill</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#0f172a;
+color:white;
+overflow-x:hidden;
+}
+
+/* background */
+
+#bg{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* header */
+
+header{
+text-align:center;
+padding:20px;
+font-size:24px;
+font-weight:bold;
+}
+
+/* navbar */
+
+nav{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+background:#020617;
+}
+
+nav button{
+background:none;
+border:none;
+color:white;
+padding:12px;
+font-size:14px;
+cursor:pointer;
+}
+
+nav button:hover{
+color:#38bdf8;
+}
+
+/* container */
+
+.container{
+padding:20px;
+min-height:60vh;
+}
+
+.page{
+display:none;
+animation:fade .4s;
+}
+
+.page.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateX(20px);}
+to{opacity:1;transform:translateX(0);}
+}
+
+/* player */
+
+.player{
+background:#020617;
+padding:15px;
+border-radius:10px;
+max-width:400px;
+margin:auto;
+}
+
+/* games */
+
+canvas{
+background:#020617;
+border:2px solid white;
+border-radius:8px;
+margin-top:10px;
+max-width:100%;
+}
+
+/* memory */
+
+.memory{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+max-width:300px;
+margin:auto;
+}
+
+.card{
+background:#38bdf8;
+height:60px;
+cursor:pointer;
+}
+
+/* footer */
+
+footer{
+text-align:center;
+padding:10px;
+background:#020617;
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>Brenninho's Chill</header>
+
+<nav>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('music')">Music</button>
+<button onclick="showPage('games')">Games</button>
+<button onclick="showPage('about')">About</button>
+</nav>
+
+<div class="container">
+
+<div id="home" class="page active">
+<h2>Welcome</h2>
+<p>Relax and enjoy the chill vibes.</p>
+</div>
+
+<div id="music" class="page">
+<h2>Music Player</h2>
+
+<div class="player">
+<audio controls style="width:100%">
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+</div>
+
+</div>
+
+<div id="games" class="page">
+
+<h2>Click Square</h2>
+<canvas id="clickGame" width="300" height="200"></canvas>
+<p>Score: <span id="score1">0</span></p>
+
+<h2>Catch the Star</h2>
+<canvas id="starGame" width="300" height="200"></canvas>
+<p>Score: <span id="score2">0</span></p>
+
+<h2>Dodge Game</h2>
+<canvas id="dodgeGame" width="300" height="200"></canvas>
+
+<h2>Memory Game</h2>
+<div class="memory" id="memory"></div>
+
+</div>
+
+<div id="about" class="page">
+<h2>About</h2>
+<p>A chill website with music and mini games.</p>
+</div>
+
+</div>
+
+<footer>
+© 2026 Brenninho's Chill
+</footer>
+
+<script>
+
+/* PAGE SYSTEM */
+
+function showPage(id){
+
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.remove("active")
+})
+
+document.getElementById(id).classList.add("active")
+
+}
+
+/* LOFI STAR BACKGROUND */
+
+const bg=document.getElementById("bg")
+const ctx=bg.getContext("2d")
+
+bg.width=window.innerWidth
+bg.height=window.innerHeight
+
+let stars=[]
+
+for(let i=0;i<120;i++){
+
+stars.push({
+x:Math.random()*bg.width,
+y:Math.random()*bg.height,
+r:Math.random()*2,
+speed:Math.random()*0.3
+})
+
+}
+
+function animateBG(){
+
+ctx.clearRect(0,0,bg.width,bg.height)
+
+ctx.fillStyle="white"
+
+stars.forEach(s=>{
+
+s.y+=s.speed
+
+if(s.y>bg.height) s.y=0
+
+ctx.beginPath()
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2)
+ctx.fill()
+
+})
+
+requestAnimationFrame(animateBG)
+
+}
+
+animateBG()
+
+/* CLICK GAME */
+
+const clickCanvas=document.getElementById("clickGame")
+const c1=clickCanvas.getContext("2d")
+
+let square={x:50,y:50,size:30}
+let score1=0
+
+function drawClick(){
+
+c1.clearRect(0,0,300,200)
+c1.fillStyle="#38bdf8"
+c1.fillRect(square.x,square.y,square.size,square.size)
+
+requestAnimationFrame(drawClick)
+
+}
+
+drawClick()
+
+clickCanvas.onclick=e=>{
+
+let rect=clickCanvas.getBoundingClientRect()
+let x=e.clientX-rect.left
+let y=e.clientY-rect.top
+
+if(x>square.x && x<square.x+square.size && y>square.y && y<square.y+square.size){
+
+score1++
+document.getElementById("score1").textContent=score1
+
+square.x=Math.random()*260
+square.y=Math.random()*160
+
+}
+
+}
+
+/* STAR GAME */
+
+const starCanvas=document.getElementById("starGame")
+const c2=starCanvas.getContext("2d")
+
+let star={x:100,y:0}
+let score2=0
+
+function drawStar(){
+
+c2.clearRect(0,0,300,200)
+
+star.y+=2
+
+if(star.y>200){
+star.y=0
+star.x=Math.random()*280
+}
+
+c2.fillStyle="yellow"
+c2.beginPath()
+c2.arc(star.x,star.y,10,0,Math.PI*2)
+c2.fill()
+
+requestAnimationFrame(drawStar)
+
+}
+
+drawStar()
+
+starCanvas.onclick=e=>{
+
+let rect=starCanvas.getBoundingClientRect()
+let x=e.clientX-rect.left
+let y=e.clientY-rect.top
+
+let dx=x-star.x
+let dy=y-star.y
+
+if(Math.sqrt(dx*dx+dy*dy)<10){
+
+score2++
+document.getElementById("score2").textContent=score2
+
+star.y=0
+star.x=Math.random()*280
+
+}
+
+}
+
+/* DODGE GAME */
+
+const dodgeCanvas=document.getElementById("dodgeGame")
+const c3=dodgeCanvas.getContext("2d")
+
+let player={x:140,y:170}
+let enemy={x:Math.random()*280,y:0}
+
+document.addEventListener("mousemove",e=>{
+player.x=e.clientX/3
+})
+
+function dodgeLoop(){
+
+c3.clearRect(0,0,300,200)
+
+enemy.y+=3
+
+if(enemy.y>200){
+enemy.y=0
+enemy.x=Math.random()*280
+}
+
+c3.fillStyle="white"
+c3.fillRect(player.x,player.y,20,20)
+
+c3.fillStyle="red"
+c3.fillRect(enemy.x,enemy.y,20,20)
+
+requestAnimationFrame(dodgeLoop)
+
+}
+
+dodgeLoop()
+
+/* MEMORY GAME */
+
+const memory=document.getElementById("memory")
+
+let colors=["red","blue","green","yellow","red","blue","green","yellow"]
+
+colors.sort(()=>Math.random()-0.5)
+
+let first=null
+
+colors.forEach(color=>{
+
+let card=document.createElement("div")
+card.className="card"
+
+card.onclick=()=>{
+
+card.style.background=color
+
+if(!first){
+
+first={card,color}
+
+}else{
+
+if(first.color!==color){
+
+setTimeout(()=>{
+card.style.background="#38bdf8"
+first.card.style.background="#38bdf8"
+},500)
+
+}
+
+first=null
+
+}
+
+}
+
+memory.appendChild(card)
+
+})
+
+</script>
+
+</body>
+</html>
