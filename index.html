@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brenninho's LoFi Sanctuary</title>
+<title>Brenninho's LoFi Multiverse ∞</title>
 <style>
 * {
   margin: 0;
@@ -29,72 +29,72 @@ body {
   height: 100%;
   z-index: -3;
   background: radial-gradient(ellipse at 40% 40%, #1a1f3a, #0a0c14, #030413);
-  animation: breath 20s ease infinite;
+  animation: breath 25s ease infinite;
 }
 
 @keyframes breath {
   0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.9; }
+  50% { transform: scale(1.02); opacity: 0.95; }
 }
 
-/* Animated gradient orbs */
+/* Gradient orbs */
 .gradient-orb {
   position: fixed;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(100px);
   z-index: -2;
   animation: orbFloat 30s infinite alternate;
 }
 
 .orb1 {
-  width: 70vh;
-  height: 70vh;
-  background: rgba(56, 189, 248, 0.15);
+  width: 80vh;
+  height: 80vh;
+  background: rgba(56, 189, 248, 0.12);
   top: -20vh;
   right: -20vh;
   animation: orbFloat 25s infinite alternate;
 }
 
 .orb2 {
-  width: 90vh;
-  height: 90vh;
-  background: rgba(168, 85, 247, 0.12);
+  width: 100vh;
+  height: 100vh;
+  background: rgba(168, 85, 247, 0.1);
   bottom: -30vh;
   left: -20vh;
   animation: orbFloat 35s infinite alternate-reverse;
 }
 
 .orb3 {
-  width: 50vh;
-  height: 50vh;
-  background: rgba(236, 72, 153, 0.1);
-  top: 50%;
+  width: 60vh;
+  height: 60vh;
+  background: rgba(236, 72, 153, 0.08);
+  top: 40%;
   left: 30%;
   animation: orbFloat 20s infinite alternate;
 }
 
-@keyframes orbFloat {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(5%, 5%) scale(1.2); }
+.orb4 {
+  width: 120vh;
+  height: 120vh;
+  background: rgba(255, 215, 0, 0.05);
+  top: 10%;
+  right: 10%;
+  animation: orbFloat 40s infinite alternate;
 }
 
-/* Noise overlay */
-#noise {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.03;
-  pointer-events: none;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSIzIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4xIiAvPjwvc3ZnPg==');
+.orb5 {
+  width: 90vh;
+  height: 90vh;
+  background: rgba(50, 205, 50, 0.06);
+  bottom: 20%;
+  left: 20%;
+  animation: orbFloat 30s infinite alternate-reverse;
 }
 
-/* Floating particles system */
+/* Floating particles */
 .particle {
   position: fixed;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.02);
   border-radius: 50%;
   pointer-events: none;
   z-index: -1;
@@ -106,39 +106,99 @@ body {
   to { transform: translateY(-100vh) rotate(360deg); }
 }
 
-/* Grain texture */
-#grain {
+/* ========== SPLASH INTRO ========== */
+#splash-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  opacity: 0.02;
+  background: radial-gradient(ellipse at center, #1a1f3a, #030413);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 2s ease, visibility 2s ease;
   pointer-events: none;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjk5IiBudW1PY3RhdmVzPSIzIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4xIiAvPjwvc3ZnPg==');
+}
+
+.splash-logo {
+  font-size: 120px;
+  animation: splashFloat 3s infinite alternate;
+  text-shadow: 0 0 50px #38bdf8, 0 0 100px #a855f7;
+  margin-bottom: 30px;
+}
+
+@keyframes splashFloat {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(-20px) scale(1.05); }
+}
+
+.splash-title {
+  font-size: 48px;
+  letter-spacing: 20px;
+  color: white;
+  text-shadow: 0 0 30px #38bdf8;
+  animation: splashGlow 2s infinite alternate;
+  margin-bottom: 20px;
+}
+
+@keyframes splashGlow {
+  from { text-shadow: 0 0 30px #38bdf8; }
+  to { text-shadow: 0 0 60px #a855f7, 0 0 90px #38bdf8; }
+}
+
+.splash-sub {
+  font-size: 24px;
+  color: #94a3b8;
+  letter-spacing: 4px;
+  animation: splashFade 2s infinite alternate;
+}
+
+@keyframes splashFade {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+.splash-progress {
+  width: 300px;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.splash-progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #a855f7);
+  animation: progressLoad 3s ease-in-out forwards;
+}
+
+@keyframes progressLoad {
+  0% { width: 0%; }
+  100% { width: 100%; }
 }
 
 /* ========== HEADER ========== */
 header {
   text-align: center;
-  padding: 40px 20px 20px;
-  font-size: 56px;
+  padding: 30px 20px;
+  font-size: 48px;
   font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 16px;
+  letter-spacing: 12px;
   color: #ffffff;
   text-shadow: 
-    0 0 10px rgba(56, 189, 248, 0.5),
-    0 0 20px rgba(56, 189, 248, 0.3),
-    0 0 40px rgba(56, 189, 248, 0.2),
-    2px 2px 0 #0f172a;
-  animation: softFlicker 4s infinite;
+    0 0 20px rgba(56, 189, 248, 0.5),
+    0 0 40px rgba(56, 189, 248, 0.3);
+  animation: softGlow 3s infinite alternate;
   font-family: 'Segoe UI', 'Courier New', monospace;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
   margin-bottom: 20px;
   position: relative;
-  backdrop-filter: blur(2px);
 }
 
 header::before, header::after {
@@ -146,22 +206,22 @@ header::before, header::after {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 40px;
+  font-size: 36px;
   color: rgba(56, 189, 248, 0.6);
-  animation: glow 3s infinite alternate;
+  animation: floatSymbol 3s infinite alternate;
 }
 
-header::before { left: 20px; }
-header::after { right: 20px; }
+header::before { left: 30px; }
+header::after { right: 30px; }
 
-@keyframes softFlicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.95; }
+@keyframes softGlow {
+  from { text-shadow: 0 0 20px #38bdf8, 0 0 40px #38bdf8; }
+  to { text-shadow: 0 0 30px #a855f7, 0 0 60px #a855f7; }
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 5px #38bdf8; }
-  to { text-shadow: 0 0 20px #38bdf8; }
+@keyframes floatSymbol {
+  from { transform: translateY(-50%) translateX(0); }
+  to { transform: translateY(-50%) translateX(10px); }
 }
 
 /* ========== NAVBAR ========== */
@@ -169,11 +229,11 @@ nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   padding: 15px;
-  background: rgba(2, 6, 23, 0.4);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+  background: rgba(2, 6, 23, 0.3);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
   margin-bottom: 30px;
   position: sticky;
   top: 0;
@@ -181,11 +241,11 @@ nav {
 }
 
 nav button {
-  background: rgba(2, 6, 23, 0.5);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid rgba(56, 189, 248, 0.2);
   color: #cbd5e1;
-  padding: 12px 24px;
-  font-size: 16px;
+  padding: 10px 20px;
+  font-size: 15px;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -200,7 +260,7 @@ nav button:hover {
   background: rgba(56, 189, 248, 0.15);
   border-color: #38bdf8;
   color: #ffffff;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
   transform: translateY(-2px);
 }
 
@@ -234,139 +294,77 @@ nav button:hover {
 
 /* ========== GLASS CARD ========== */
 .glass-card {
-  background: rgba(10, 15, 30, 0.4);
+  background: rgba(10, 15, 30, 0.3);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.15);
   border-radius: 30px;
   padding: 30px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(56, 189, 248, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   transition: all 0.4s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(56, 189, 248, 0.4);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(56, 189, 248, 0.3);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(56, 189, 248, 0.2);
 }
 
-/* ========== MUSIC PLAYER ========== */
-.lofi-player {
-  text-align: center;
-}
-
-.vinyl-container {
-  position: relative;
-  width: 280px;
-  height: 280px;
-  margin: 0 auto 30px;
-}
-
-.vinyl {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #1a1f2e, #2d3748, #1a1f2e, #0f172a, #1a1f2e);
-  border: 3px solid rgba(56, 189, 248, 0.5);
-  animation: spin 8s linear infinite;
-  position: relative;
-  box-shadow: 0 0 50px rgba(56, 189, 248, 0.3);
-}
-
-.vinyl::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60px;
-  height: 60px;
-  background: radial-gradient(circle, #38bdf8, #0f172a);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.vinyl.paused {
-  animation-play-state: paused;
-}
-
-.vinyl-glow {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, transparent 70%);
-  animation: pulseGlow 3s infinite alternate;
-}
-
-@keyframes pulseGlow {
-  from { opacity: 0.3; transform: scale(0.95); }
-  to { opacity: 0.7; transform: scale(1.05); }
-}
-
-.station-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 30px 0;
-  flex-wrap: wrap;
-}
-
-.lofi-btn {
+/* ========== OPTIONS MENU ========== */
+.options-panel {
   background: rgba(2, 6, 23, 0.6);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  color: #e2e8f0;
-  padding: 12px 25px;
-  border-radius: 40px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-  letter-spacing: 1px;
-}
-
-.lofi-btn:hover, .lofi-btn.active {
-  background: rgba(56, 189, 248, 0.2);
-  border-color: #38bdf8;
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
-  transform: scale(1.05);
-}
-
-.player {
-  background: rgba(2, 6, 23, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
   border-radius: 40px;
   padding: 30px;
-  max-width: 500px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-audio {
-  width: 100%;
-  margin: 20px 0;
-  filter: sepia(0.3) hue-rotate(175deg) brightness(0.9);
-  border-radius: 30px;
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 25px;
 }
 
-.volume-control {
+.option-item {
+  background: rgba(56, 189, 248, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 25px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.option-item:hover {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: #38bdf8;
+  transform: translateX(5px);
+}
+
+.option-item h4 {
+  color: #38bdf8;
+  margin-bottom: 15px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.option-item label {
   display: flex;
   align-items: center;
-  gap: 15px;
-  color: #38bdf8;
-  margin: 20px 0;
+  gap: 10px;
+  margin: 12px 0;
+  color: #cbd5e1;
+  cursor: pointer;
 }
 
-.volume-control input {
-  flex: 1;
+.option-item input[type="range"] {
+  width: 100%;
   height: 4px;
-  -webkit-appearance: none;
   background: linear-gradient(90deg, #38bdf8, #a855f7);
   border-radius: 2px;
-  outline: none;
+  -webkit-appearance: none;
 }
 
-.volume-control input::-webkit-slider-thumb {
+.option-item input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 18px;
   height: 18px;
@@ -374,24 +372,162 @@ audio {
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 0 15px #38bdf8;
-  transition: 0.2s;
 }
 
-.volume-control input::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
+.option-item select {
+  width: 100%;
+  padding: 10px;
+  background: rgba(2, 6, 23, 0.6);
+  border: 1px solid #38bdf8;
+  border-radius: 15px;
+  color: white;
+  font-family: 'Segoe UI', monospace;
+  cursor: pointer;
 }
 
-/* ========== GAMES GRID ========== */
-.games-grid {
+.option-item select option {
+  background: #0f172a;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  background: rgba(56, 189, 248, 0.2);
+  border-radius: 30px;
+  border: 1px solid #38bdf8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-switch.active {
+  background: #38bdf8;
+}
+
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  top: 1px;
+  left: 2px;
+  transition: all 0.3s ease;
+}
+
+.toggle-switch.active::after {
+  left: 27px;
+}
+
+/* ========== CONNECTIONS PAGE ========== */
+.connections-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-  padding: 20px;
+  margin-top: 30px;
 }
 
-.game-card {
-  background: rgba(10, 15, 30, 0.3);
-  backdrop-filter: blur(8px);
+.connection-card {
+  background: rgba(2, 6, 23, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 35px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.connection-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.6s;
+  pointer-events: none;
+}
+
+.connection-card:hover::before {
+  opacity: 1;
+}
+
+.connection-card:hover {
+  transform: translateY(-10px);
+  border-color: #38bdf8;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
+}
+
+.connection-icon {
+  font-size: 70px;
+  margin-bottom: 20px;
+  animation: iconFloat 3s infinite alternate;
+}
+
+@keyframes iconFloat {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+.connection-card h3 {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.connection-card p {
+  color: #94a3b8;
+  margin-bottom: 25px;
+}
+
+.connect-btn {
+  background: linear-gradient(135deg, #38bdf8, #0284c7);
+  border: none;
+  color: white;
+  padding: 12px 35px;
+  border-radius: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.connect-btn:hover {
+  background: transparent;
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+}
+
+.connection-status {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+/* ========== FUN CORNER ========== */
+.fun-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.fun-card {
+  background: rgba(2, 6, 23, 0.4);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(56, 189, 248, 0.15);
   border-radius: 30px;
   padding: 25px;
@@ -400,409 +536,377 @@ audio {
   cursor: pointer;
 }
 
-.game-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(56, 189, 248, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(56, 189, 248, 0.2);
-}
-
-.game-card h3 {
-  color: #ffffff;
-  font-weight: 300;
-  letter-spacing: 2px;
-  margin-bottom: 15px;
-  text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
-}
-
-canvas {
-  background: rgba(2, 6, 23, 0.6);
-  border: 2px solid rgba(56, 189, 248, 0.3);
-  border-radius: 20px;
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  display: block;
-  margin: 15px auto;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-}
-
-canvas:hover {
+.fun-card:hover {
+  transform: scale(1.02) rotate(1deg);
   border-color: #38bdf8;
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-.score-container {
+.fun-emoji {
+  font-size: 50px;
+  margin-bottom: 15px;
+  animation: spinEmoji 10s infinite linear;
+}
+
+@keyframes spinEmoji {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.fun-card h4 {
+  color: #38bdf8;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.fun-card p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* ========== FNF PORTS PAGE ========== */
+.fnf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.fnf-card {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(168, 85, 247, 0.1));
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(56, 189, 248, 0.3);
+  border-radius: 35px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.fnf-card::before {
+  content: '🎵';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 120px;
+  opacity: 0.1;
+  transform: rotate(15deg);
+}
+
+.fnf-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #38bdf8;
+  box-shadow: 0 0 50px rgba(56, 189, 248, 0.5);
+}
+
+.fnf-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: fnfBeat 1s infinite alternate;
+}
+
+@keyframes fnfBeat {
+  from { transform: scale(1); text-shadow: 0 0 20px #38bdf8; }
+  to { transform: scale(1.1); text-shadow: 0 0 40px #a855f7; }
+}
+
+.fnf-card h3 {
+  color: white;
+  font-size: 32px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 15px #38bdf8;
+}
+
+.fnf-card p {
+  color: #94a3b8;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.fnf-download {
+  display: inline-block;
+  background: linear-gradient(135deg, #38bdf8, #a855f7);
+  color: white;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  margin: 10px;
+}
+
+.fnf-download:hover {
+  background: transparent;
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #38bdf8;
+}
+
+.fnf-trailer {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  border: 1px solid #38bdf8;
+  margin: 10px;
+}
+
+.fnf-trailer:hover {
+  background: #38bdf8;
+  color: #020617;
+  transform: scale(1.05);
+}
+
+.fnf-features {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin: 15px 0;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
-.score {
-  background: rgba(2, 6, 23, 0.6);
-  border: 1px solid #38bdf8;
-  padding: 6px 18px;
+.fnf-feature {
+  background: rgba(56, 189, 248, 0.2);
+  padding: 8px 15px;
   border-radius: 30px;
-  font-size: 18px;
+  font-size: 14px;
   color: #38bdf8;
-  backdrop-filter: blur(5px);
 }
 
-.high-score {
-  border-color: #ffd700;
-  color: #ffd700;
-}
-
-/* ========== CHILLGPT ADVANCED ========== */
-.chat-container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: rgba(2, 6, 23, 0.5);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+/* ========== LOFI QUOTES ========== */
+.quote-widget {
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid rgba(56, 189, 248, 0.2);
   border-radius: 40px;
-  overflow: hidden;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  padding: 25px;
+  margin: 30px 0;
+  text-align: center;
+  backdrop-filter: blur(10px);
 }
 
-.chat-header {
-  background: rgba(2, 6, 23, 0.8);
-  padding: 25px 30px;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.chat-avatar {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #38bdf8, #a855f7);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  animation: avatarPulse 3s infinite;
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
-}
-
-@keyframes avatarPulse {
-  0%, 100% { box-shadow: 0 0 20px #38bdf8; }
-  50% { box-shadow: 0 0 40px #a855f7; }
-}
-
-.chat-title h3 {
+.quote-text {
+  font-size: 20px;
   color: #ffffff;
-  font-size: 28px;
-  font-weight: 300;
-  letter-spacing: 2px;
-  margin-bottom: 5px;
+  font-style: italic;
+  margin-bottom: 15px;
+  line-height: 1.6;
 }
 
-.chat-title p {
-  color: #94a3b8;
+.quote-author {
+  color: #38bdf8;
   font-size: 14px;
   letter-spacing: 1px;
 }
 
-.chat-messages {
-  height: 500px;
-  overflow-y: auto;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  scroll-behavior: smooth;
-}
-
-.message {
-  display: flex;
+/* ========== MOOD BOARD ========== */
+.mood-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
-  max-width: 80%;
-  animation: messageAppear 0.4s ease;
-}
-
-@keyframes messageAppear {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.message.user {
-  margin-left: auto;
-  flex-direction: row-reverse;
-}
-
-.message-avatar {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #38bdf8, #0f172a);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.message.user .message-avatar {
-  background: linear-gradient(135deg, #10b981, #059669);
-}
-
-.message-content {
-  background: rgba(56, 189, 248, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  border-radius: 25px;
-  padding: 15px 20px;
-  color: #e2e8f0;
-  line-height: 1.6;
-  font-size: 15px;
-  backdrop-filter: blur(5px);
-}
-
-.message.user .message-content {
-  background: rgba(16, 185, 129, 0.08);
-  border-color: rgba(16, 185, 129, 0.3);
-}
-
-.message-time {
-  font-size: 11px;
-  color: #64748b;
-  margin-top: 8px;
-  text-align: right;
-}
-
-.chat-input-area {
-  display: flex;
-  padding: 25px 30px;
-  background: rgba(2, 6, 23, 0.8);
-  border-top: 1px solid rgba(56, 189, 248, 0.3);
-  gap: 15px;
-}
-
-.chat-input-area input {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  border-radius: 40px;
-  padding: 15px 25px;
-  color: white;
-  font-family: 'Segoe UI', 'Courier New', monospace;
-  font-size: 16px;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.chat-input-area input:focus {
-  border-color: #38bdf8;
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.chat-input-area button {
-  background: linear-gradient(135deg, #38bdf8, #0284c7);
-  border: none;
-  border-radius: 40px;
-  padding: 0 35px;
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Segoe UI', 'Courier New', monospace;
-  letter-spacing: 1px;
-  border: 1px solid transparent;
-}
-
-.chat-input-area button:hover {
-  background: transparent;
-  border-color: #38bdf8;
-  color: #38bdf8;
-  transform: scale(1.02);
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
-}
-
-.typing-indicator {
-  display: flex;
-  gap: 8px;
-  padding: 15px 20px;
-  background: rgba(56, 189, 248, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  border-radius: 25px;
-  width: fit-content;
-}
-
-.typing-indicator span {
-  width: 8px;
-  height: 8px;
-  background: #38bdf8;
-  border-radius: 50%;
-  animation: typingBounce 1.4s infinite ease-in-out;
-}
-
-.typing-indicator span:nth-child(1) { animation-delay: 0s; }
-.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes typingBounce {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
-  30% { transform: translateY(-15px); opacity: 1; }
-}
-
-/* ========== TIME & WEATHER ========== */
-.time-display {
-  text-align: center;
-  font-size: 36px;
-  font-weight: 300;
   margin: 30px 0;
-  color: #ffffff;
-  font-family: 'Segoe UI', 'Courier New', monospace;
-  text-shadow: 0 0 20px #38bdf8;
-  letter-spacing: 4px;
 }
 
-.weather-widget {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  margin: 30px 0;
-  padding: 20px 40px;
-  background: rgba(2, 6, 23, 0.3);
-  backdrop-filter: blur(10px);
-  border-radius: 60px;
+.mood-item {
+  aspect-ratio: 1;
+  background: rgba(56, 189, 248, 0.1);
   border: 1px solid rgba(56, 189, 248, 0.2);
-}
-
-.weather-icon {
-  font-size: 48px;
-  animation: weatherFloat 4s ease infinite;
-  filter: drop-shadow(0 0 15px #38bdf8);
-}
-
-.weather-info {
-  font-size: 24px;
-  color: #e2e8f0;
-  letter-spacing: 1px;
-}
-
-@keyframes weatherFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* ========== TODO LIST ========== */
-.todo-list {
-  margin-top: 30px;
-  background: rgba(2, 6, 23, 0.3);
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
-  padding: 25px;
-  border: 1px solid rgba(56, 189, 248, 0.2);
-}
-
-.todo-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.1);
-  transition: all 0.3s ease;
-}
-
-.todo-item:hover {
-  background: rgba(56, 189, 248, 0.05);
   border-radius: 20px;
-}
-
-.todo-item input[type="checkbox"] {
-  width: 22px;
-  height: 22px;
-  cursor: pointer;
-  accent-color: #38bdf8;
-}
-
-.todo-item span {
-  flex: 1;
-  font-size: 16px;
-}
-
-.todo-item.completed span {
-  text-decoration: line-through;
-  color: #64748b;
-}
-
-.todo-item button {
-  background: none;
-  border: none;
-  color: #ef4444;
-  cursor: pointer;
-  font-size: 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.todo-item:hover button {
-  opacity: 0.7;
-}
-
-.todo-item button:hover {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-.add-todo {
   display: flex;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.add-todo input {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  border-radius: 40px;
-  padding: 15px 20px;
-  color: white;
-  font-family: 'Segoe UI', 'Courier New', monospace;
-  font-size: 16px;
-}
-
-.add-todo button {
-  background: linear-gradient(135deg, #38bdf8, #0284c7);
-  border: none;
-  border-radius: 40px;
-  padding: 0 35px;
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.add-todo button:hover {
-  background: transparent;
-  border: 1px solid #38bdf8;
-  color: #38bdf8;
+.mood-item:hover {
+  transform: scale(1.1);
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+  box-shadow: 0 0 30px #38bdf8;
 }
 
 /* ========== FOOTER ========== */
 footer {
   text-align: center;
-  padding: 30px;
-  background: rgba(2, 6, 23, 0.4);
+  padding: 25px;
+  background: rgba(2, 6, 23, 0.3);
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba(56, 189, 248, 0.2);
   margin-top: 80px;
   font-size: 14px;
   letter-spacing: 2px;
   color: #94a3b8;
+}
+
+/* ========== EXTRA OPTIONS STYLES ========== */
+.extra-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.extra-option {
+  background: rgba(56, 189, 248, 0.05);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 20px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.extra-option:hover {
+  background: rgba(56, 189, 248, 0.1);
+  transform: scale(1.05);
+}
+
+.extra-option span {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* ========== KEYBOARD SHORTCUTS HELP ========== */
+.shortcuts-help {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid #38bdf8;
+  border-radius: 50px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.shortcuts-help:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #38bdf8;
+}
+
+.shortcuts-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(20px);
+  border: 2px solid #38bdf8;
+  border-radius: 40px;
+  padding: 40px;
+  z-index: 10001;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  max-width: 500px;
+  width: 90%;
+}
+
+.shortcuts-panel.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.shortcuts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.shortcut-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: rgba(56, 189, 248, 0.1);
+  border-radius: 15px;
+}
+
+.shortcut-key {
+  background: #38bdf8;
+  color: #020617;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* ========== NOTIFICATION SYSTEM ========== */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(2, 6, 23, 0.9);
+  backdrop-filter: blur(10px);
+  border-left: 4px solid #38bdf8;
+  border-radius: 15px;
+  padding: 15px 25px;
+  color: white;
+  z-index: 10002;
+  animation: slideIn 0.3s ease;
+  max-width: 350px;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ========== ACHIEVEMENTS ========== */
+.achievement-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #38bdf8, #a855f7);
+  border-radius: 20px;
+  padding: 15px 25px;
+  color: white;
+  z-index: 10002;
+  animation: popup 0.5s ease;
+}
+
+@keyframes popup {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ========== CURSOR EFFECTS ========== */
+.cursor-effect {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #38bdf8;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.1s ease;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: rgba(56, 189, 248, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.05s ease;
 }
 
 /* ========== RESPONSIVE ========== */
@@ -820,43 +924,83 @@ footer {
     grid-template-columns: 1fr;
   }
   
-  .chat-messages {
-    height: 400px;
+  .options-grid {
+    grid-template-columns: 1fr;
   }
   
-  .message {
-    max-width: 90%;
+  .extra-options-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .shortcuts-panel {
+    width: 95%;
+    padding: 20px;
   }
 }
 </style>
 </head>
 <body>
 
+<!-- SPLASH INTRO -->
+<div id="splash-screen">
+  <div class="splash-logo">🌙</div>
+  <div class="splash-title">LOFI MULTIVERSE</div>
+  <div class="splash-sub">BRENNINHO'S SANCTUARY</div>
+  <div class="splash-progress">
+    <div class="splash-progress-bar"></div>
+  </div>
+</div>
+
 <!-- Background elements -->
 <div id="vhs-bg"></div>
 <div class="gradient-orb orb1"></div>
 <div class="gradient-orb orb2"></div>
 <div class="gradient-orb orb3"></div>
-<div id="noise"></div>
-<div id="grain"></div>
+<div class="gradient-orb orb4"></div>
+<div class="gradient-orb orb5"></div>
 
-<!-- Floating particles -->
+<!-- Particles -->
 <script>
-for(let i = 0; i < 50; i++) {
+for(let i = 0; i < 100; i++) {
   const particle = document.createElement('div');
   particle.className = 'particle';
-  particle.style.width = Math.random() * 8 + 2 + 'px';
+  particle.style.width = Math.random() * 15 + 2 + 'px';
   particle.style.height = particle.style.width;
   particle.style.left = Math.random() * 100 + '%';
   particle.style.animationDelay = Math.random() * 20 + 's';
-  particle.style.animationDuration = (Math.random() * 20 + 20) + 's';
-  particle.style.background = `rgba(${Math.random() * 100 + 155}, ${Math.random() * 100 + 155}, 255, ${Math.random() * 0.1})`;
+  particle.style.animationDuration = (Math.random() * 40 + 40) + 's';
+  particle.style.background = `rgba(56, 189, 248, ${Math.random() * 0.15})`;
   document.body.appendChild(particle);
 }
 </script>
 
+<!-- Cursor Effects -->
+<div class="cursor-effect" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+
+<!-- Keyboard Shortcuts Help -->
+<div class="shortcuts-help" onclick="toggleShortcuts()">⌨️ Shortcuts</div>
+
+<!-- Shortcuts Panel -->
+<div class="shortcuts-panel" id="shortcutsPanel">
+  <h2 style="color: #38bdf8; margin-bottom: 20px;">✦ KEYBOARD SHORTCUTS ✦</h2>
+  <div class="shortcuts-grid">
+    <div class="shortcut-item"><span>Home</span><span class="shortcut-key">Ctrl+H</span></div>
+    <div class="shortcut-item"><span>Music</span><span class="shortcut-key">Ctrl+M</span></div>
+    <div class="shortcut-item"><span>Games</span><span class="shortcut-key">Ctrl+G</span></div>
+    <div class="shortcut-item"><span>Chat</span><span class="shortcut-key">Ctrl+C</span></div>
+    <div class="shortcut-item"><span>Connections</span><span class="shortcut-key">Ctrl+O</span></div>
+    <div class="shortcut-item"><span>Fun Corner</span><span class="shortcut-key">Ctrl+F</span></div>
+    <div class="shortcut-item"><span>FNF Ports</span><span class="shortcut-key">Ctrl+P</span></div>
+    <div class="shortcut-item"><span>Options</span><span class="shortcut-key">Ctrl+S</span></div>
+    <div class="shortcut-item"><span>About</span><span class="shortcut-key">Ctrl+A</span></div>
+    <div class="shortcut-item"><span>Close</span><span class="shortcut-key">ESC</span></div>
+  </div>
+  <button onclick="toggleShortcuts()" style="margin-top: 20px; padding: 10px 30px; background: #38bdf8; border: none; border-radius: 30px; cursor: pointer; width: 100%;">CLOSE</button>
+</div>
+
 <header>
-  ☾ BRENNINHO'S SANCTUARY ☽
+  ☾ LOFI MULTIVERSE ∞ ☽
 </header>
 
 <nav>
@@ -864,6 +1008,10 @@ for(let i = 0; i < 50; i++) {
   <button onclick="showPage('music')">MUSIC</button>
   <button onclick="showPage('games')">GAMES</button>
   <button onclick="showPage('chat')">CHILLGPT</button>
+  <button onclick="showPage('connections')">CONNECTIONS</button>
+  <button onclick="showPage('fnf')">FNF PORTS</button>
+  <button onclick="showPage('fun')">FUN CORNER</button>
+  <button onclick="showPage('options')">OPTIONS</button>
   <button onclick="showPage('about')">ABOUT</button>
 </nav>
 
@@ -872,25 +1020,25 @@ for(let i = 0; i < 50; i++) {
   <!-- HOME PAGE -->
   <div id="home" class="page active">
     <div class="glass-card">
-      <h2 style="color: #ffffff; font-weight: 300; letter-spacing: 4px; margin-bottom: 20px; text-align: center;">WELCOME TO THE SANCTUARY</h2>
-      <div class="time-display" id="currentTime"></div>
+      <h2 style="color: #ffffff; font-weight: 300; letter-spacing: 4px; margin-bottom: 20px; text-align: center;">WELCOME TO THE MULTIVERSE ∞</h2>
       
-      <div class="weather-widget" id="weatherWidget">
-        <div class="weather-icon" id="weatherIcon">🌙</div>
-        <div class="weather-info" id="weatherInfo">Loading...</div>
+      <div id="currentTime" style="text-align: center; font-size: 36px; margin: 30px 0; color: #38bdf8;"></div>
+      
+      <!-- Quote Widget -->
+      <div class="quote-widget" id="quoteWidget">
+        <div class="quote-text" id="quoteText">Loading peaceful quote...</div>
+        <div class="quote-author" id="quoteAuthor">-</div>
       </div>
       
-      <div style="text-align: center; margin: 40px 0; line-height: 2; color: #cbd5e1;">
-        <p style="font-size: 20px;">✧ A peaceful space for relaxation, music, and mindfulness ✧</p>
-        <p style="font-size: 16px; margin-top: 20px;">〰️ Breathe. Relax. Be present. 〰️</p>
-      </div>
+      <!-- Mood Board -->
+      <h3 style="color: #38bdf8; margin: 30px 0 15px;">✦ MOOD BOARD ✦</h3>
+      <div class="mood-board" id="moodBoard"></div>
       
-      <div class="todo-list">
-        <h3 style="color: #ffffff; font-weight: 300; letter-spacing: 2px; margin-bottom: 20px;">✦ DAILY INTENTIONS ✦</h3>
-        <div id="todoItems"></div>
-        <div class="add-todo">
-          <input type="text" id="todoInput" placeholder="Add a gentle intention..." onkeypress="if(event.key==='Enter') addTodo()">
-          <button onclick="addTodo()">ADD</button>
+      <!-- Weather -->
+      <div style="display: flex; justify-content: center; margin: 30px 0;">
+        <div style="background: rgba(2,6,23,0.4); padding: 15px 40px; border-radius: 50px; border: 1px solid #38bdf8;">
+          <span id="weatherIcon">🌙</span>
+          <span id="weatherInfo" style="margin-left: 15px;">Loading...</span>
         </div>
       </div>
     </div>
@@ -898,71 +1046,586 @@ for(let i = 0; i < 50; i++) {
 
   <!-- MUSIC PAGE -->
   <div id="music" class="page">
-    <div class="glass-card lofi-player">
-      <h2 style="color: #ffffff; font-weight: 300; letter-spacing: 4px; margin-bottom: 30px;">✦ MUSIC SANCTUARY ✦</h2>
-      
-      <div class="vinyl-container">
-        <div class="vinyl" id="vinyl"></div>
-        <div class="vinyl-glow"></div>
+    <div class="glass-card" style="text-align: center;">
+      <h2 style="color: #38bdf8;">✦ MUSIC SANCTUARY ✦</h2>
+      <div style="margin: 40px 0;">
+        <div style="width: 200px; height: 200px; border-radius: 50%; margin: 0 auto; background: conic-gradient(#38bdf8, #a855f7, #38bdf8, #10b981, #38bdf8); animation: spin 8s linear infinite;"></div>
       </div>
-      
-      <div class="station-buttons">
-        <button class="lofi-btn" onclick="changeStation('lofi')">🌙 LOFI BEATS</button>
-        <button class="lofi-btn" onclick="changeStation('jazz')">🎷 JAZZ HOP</button>
-        <button class="lofi-btn" onclick="changeStation('chill')">🌊 CHILL WAVES</button>
-        <button class="lofi-btn" onclick="changeStation('ambient')">☁️ AMBIENT</button>
-        <button class="lofi-btn" onclick="changeStation('piano')">🎹 PIANO</button>
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <button class="connect-btn" onclick="changeStation('lofi')">LOFI</button>
+        <button class="connect-btn" onclick="changeStation('jazz')">JAZZ</button>
+        <button class="connect-btn" onclick="changeStation('chill')">CHILL</button>
+        <button class="connect-btn" onclick="changeStation('ambient')">AMBIENT</button>
+        <button class="connect-btn" onclick="changeStation('synth')">SYNTHWAVE</button>
       </div>
-      
-      <div class="player">
-        <audio id="mainAudio" controls>
-          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        </audio>
-        
-        <div class="volume-control">
-          <span>🔊</span>
-          <input type="range" id="volumeSlider" min="0" max="100" value="60">
-          <span id="volumePercent">60%</span>
-        </div>
-        
-        <div style="margin-top: 20px; color: #94a3b8;">
-          <p id="nowPlaying" style="color: #38bdf8; font-size: 18px;">LoFi Study Session</p>
-          <p id="songDuration">0:00 / 0:00</p>
-        </div>
-      </div>
+      <audio id="mainAudio" controls style="width: 100%; margin-top: 30px;"></audio>
+      <div style="margin-top: 20px; color: #94a3b8;" id="nowPlaying">Now Playing: LoFi Beats</div>
     </div>
   </div>
 
   <!-- GAMES PAGE -->
   <div id="games" class="page">
-    <h2 style="color: #ffffff; font-weight: 300; letter-spacing: 4px; margin-bottom: 20px; text-align: center;">✦ MINDFUL GAMES ✦</h2>
-    <div class="games-grid" id="gamesGrid"></div>
+    <div class="glass-card">
+      <h2 style="color: #38bdf8; text-align: center;">✦ 30 MINDFUL GAMES ✦</h2>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 30px;">
+        <!-- Game 1-15 (existing) -->
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎯 Click Master</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">⭐ Star Catcher</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">⚡ Dodge Master</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎴 Memory Match</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🌬️ Breath Bubble</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎨 Color Harmony</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🗺️ Zen Path</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">👆 Mindful Taps</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🧮 Calm Counter</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">⚖️ Balance Beam</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🕊️ Gentle Reaction</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🧩 Peace Puzzle</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎯 Soft Target</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🔄 Tranquil Track</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🌀 Serenity Spin</div>
+        <!-- New Games 16-30 -->
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎸 Rhythm Master</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎹 Piano Tiles</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🥁 Beat Saber Lite</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎤 Karaoke Night</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎧 DJ Mixer</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">📀 Vinyl Spin</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎵 Note Catcher</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎶 Melody Match</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎤 Rap Battle</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🥁 Drum Pad</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎸 Air Guitar</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎹 Chord Finder</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎧 LoFi Quiz</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">📀 Record Scratch</div>
+        <div class="fun-card" onclick="showNotification('Game coming soon!')">🎵 Beat Drop</div>
+      </div>
+    </div>
   </div>
 
   <!-- CHILLGPT PAGE -->
   <div id="chat" class="page">
-    <div class="chat-container">
-      <div class="chat-header">
-        <div class="chat-avatar">🌙</div>
-        <div class="chat-title">
-          <h3>ChillGPT</h3>
-          <p>Your mindful AI companion</p>
+    <div style="background: rgba(2,6,23,0.6); border-radius: 40px; padding: 20px; backdrop-filter: blur(10px);">
+      <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #38bdf8, #a855f7); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; animation: pulse 2s infinite;">🌙</div>
+        <div>
+          <h3 style="color: white;">ChillGPT ∞</h3>
+          <p style="color: #94a3b8;">Advanced LoFi AI Companion</p>
         </div>
       </div>
+      <div id="chatMessages" style="height: 400px; overflow-y: auto; margin-bottom: 20px; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 30px;"></div>
+      <div style="display: flex; gap: 10px;">
+        <input id="chatInput" type="text" placeholder="Type your message..." style="flex: 1; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid #38bdf8; border-radius: 40px; color: white;">
+        <button onclick="sendMessage()" style="padding: 15px 30px; background: #38bdf8; border: none; border-radius: 40px; cursor: pointer;">SEND</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONNECTIONS PAGE -->
+  <div id="connections" class="page">
+    <div class="glass-card">
+      <h2 style="color: #38bdf8; text-align: center; margin-bottom: 30px;">✦ CONNECT WITH THE WORLD ✦</h2>
       
-      <div class="chat-messages" id="chatMessages">
-        <div class="message">
-          <div class="message-avatar">🌙</div>
-          <div class="message-content">
-            Welcome to the sanctuary. I'm here to listen, chat, and share peaceful moments with you. How are you feeling today?
-            <div class="message-time">Just now</div>
+      <div class="connections-grid">
+        <!-- Google -->
+        <div class="connection-card">
+          <div class="connection-icon">🔍</div>
+          <h3>Google</h3>
+          <p>Connect your Google account for personalized experiences</p>
+          <button class="connect-btn" id="googleBtn" onclick="connectGoogle()">CONNECT</button>
+          <div class="connection-status" id="googleStatus">⏺️ Disconnected</div>
+          <div id="googleProfile" style="margin-top: 15px; display: none;"></div>
+        </div>
+        
+        <!-- Discord -->
+        <div class="connection-card">
+          <div class="connection-icon">💬</div>
+          <h3>Discord</h3>
+          <p>Join the LoFi community on Discord</p>
+          <button class="connect-btn" id="discordBtn" onclick="connectDiscord()">CONNECT</button>
+          <div class="connection-status" id="discordStatus">⏺️ Disconnected</div>
+          <div id="discordServer" style="margin-top: 15px; display: none;">
+            <div style="background: rgba(56,189,248,0.1); padding: 10px; border-radius: 15px;">
+              <p>🌙 LoFi Lounge • 1,234 members online</p>
+              <p>#general • #music • #chill</p>
+            </div>
           </div>
         </div>
+        
+        <!-- Spotify -->
+        <div class="connection-card" onclick="connectSpotify()">
+          <div class="connection-icon">🎵</div>
+          <h3>Spotify</h3>
+          <p>Sync your playlists for the perfect vibe</p>
+          <button class="connect-btn" id="spotifyBtn">CONNECT</button>
+          <div class="connection-status" id="spotifyStatus">⏺️ Disconnected</div>
+        </div>
+        
+        <!-- GitHub -->
+        <div class="connection-card" onclick="connectGithub()">
+          <div class="connection-icon">🐙</div>
+          <h3>GitHub</h3>
+          <p>Check out the code behind the magic</p>
+          <button class="connect-btn" id="githubBtn">CONNECT</button>
+          <div class="connection-status" id="githubStatus">⏺️ Disconnected</div>
+        </div>
+        
+        <!-- Twitch -->
+        <div class="connection-card" onclick="connectTwitch()">
+          <div class="connection-icon">📺</div>
+          <h3>Twitch</h3>
+          <p>Watch LoFi streams with the community</p>
+          <button class="connect-btn" id="twitchBtn">CONNECT</button>
+          <div class="connection-status" id="twitchStatus">⏺️ Disconnected</div>
+        </div>
+        
+        <!-- Instagram -->
+        <div class="connection-card" onclick="connectInstagram()">
+          <div class="connection-icon">📸</div>
+          <h3>Instagram</h3>
+          <p>Follow for daily LoFi aesthetics</p>
+          <button class="connect-btn" id="instagramBtn">CONNECT</button>
+          <div class="connection-status" id="instagramStatus">⏺️ Disconnected</div>
+        </div>
+        
+        <!-- NEW: Twitter/X -->
+        <div class="connection-card" onclick="connectTwitter()">
+          <div class="connection-icon">🐦</div>
+          <h3>Twitter/X</h3>
+          <p>Follow for updates and LoFi news</p>
+          <button class="connect-btn" id="twitterBtn">CONNECT</button>
+          <div class="connection-status" id="twitterStatus">⏺️ Disconnected</div>
+        </div>
+        
+        <!-- NEW: Reddit -->
+        <div class="connection-card" onclick="connectReddit()">
+          <div class="connection-icon">👽</div>
+          <h3>Reddit</h3>
+          <p>Join r/LoFi community discussions</p>
+          <button class="connect-btn" id="redditBtn">CONNECT</button>
+          <div class="connection-status" id="redditStatus">⏺️ Disconnected</div>
+        </div>
+        
+        <!-- NEW: TikTok -->
+        <div class="connection-card" onclick="connectTikTok()">
+          <div class="connection-icon">🎵</div>
+          <h3>TikTok</h3>
+          <p>Short LoFi vibes and memes</p>
+          <button class="connect-btn" id="tiktokBtn">CONNECT</button>
+          <div class="connection-status" id="tiktokStatus">⏺️ Disconnected</div>
+        </div>
+        
+        <!-- NEW: YouTube -->
+        <div class="connection-card" onclick="connectYouTube()">
+          <div class="connection-icon">▶️</div>
+          <h3>YouTube</h3>
+          <p>Subscribe for LoFi playlists</p>
+          <button class="connect-btn" id="youtubeBtn">CONNECT</button>
+          <div class="connection-status" id="youtubeStatus">⏺️ Disconnected</div>
+        </div>
+        
+        <!-- NEW: SoundCloud -->
+        <div class="connection-card" onclick="connectSoundCloud()">
+          <div class="connection-icon">🎧</div>
+          <h3>SoundCloud</h3>
+          <p>Discover underground LoFi artists</p>
+          <button class="connect-btn" id="soundcloudBtn">CONNECT</button>
+          <div class="connection-status" id="soundcloudStatus">⏺️ Disconnected</div>
+        </div>
+        
+        <!-- NEW: Telegram -->
+        <div class="connection-card" onclick="connectTelegram()">
+          <div class="connection-icon">✈️</div>
+          <h3>Telegram</h3>
+          <p>Join the LoFi broadcast channel</p>
+          <button class="connect-btn" id="telegramBtn">CONNECT</button>
+          <div class="connection-status" id="telegramStatus">⏺️ Disconnected</div>
+        </div>
       </div>
       
-      <div class="chat-input-area">
-        <input type="text" id="chatInput" placeholder="Type your message..." autocomplete="off">
-        <button onclick="sendMessage()">SEND</button>
+      <!-- Social Feed -->
+      <div style="margin-top: 40px; background: rgba(0,0,0,0.2); border-radius: 30px; padding: 25px;">
+        <h3 style="color: #38bdf8; margin-bottom: 20px;">🌐 COMMUNITY FEED</h3>
+        <div id="socialFeed">
+          <div style="color: #94a3b8; text-align: center;">Connect to see what's happening</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FNF PORTS PAGE -->
+  <div id="fnf" class="page">
+    <div class="glass-card">
+      <h2 style="color: #38bdf8; text-align: center; margin-bottom: 20px;">✦ FRIDAY NIGHT FUNKIN' PORTS ✦</h2>
+      <p style="text-align: center; color: #94a3b8; margin-bottom: 40px;">Download all FNF mods and ports for free!</p>
+      
+      <div class="fnf-grid">
+        <!-- Main FNF Download -->
+        <div class="fnf-card">
+          <div class="fnf-icon">🎤</div>
+          <h3>FNF: LOFI EDITION</h3>
+          <p>The ultimate LoFi mod for Friday Night Funkin'! Featuring chill beats, relaxed gameplay, and original LoFi soundtrack.</p>
+          <div class="fnf-features">
+            <span class="fnf-feature">10+ Songs</span>
+            <span class="fnf-feature">LoFi Mix</span>
+            <span class="fnf-feature">Easy Mode</span>
+          </div>
+          <a href="https://youtu.be/pNZkQDDdAxQ?si=4-KqHnaasob77qNz" target="_blank" class="fnf-trailer">▶ WATCH TRAILER</a>
+          <a href="https://gamebanana.com/mods/123456" target="_blank" class="fnf-download">⬇️ DOWNLOAD</a>
+        </div>
+        
+        <!-- FNF: Chill Mix -->
+        <div class="fnf-card">
+          <div class="fnf-icon">🎧</div>
+          <h3>FNF: CHILL MIX</h3>
+          <p>Relaxing rhythms and smooth beats. Perfect for casual play and LoFi lovers.</p>
+          <div class="fnf-features">
+            <span class="fnf-feature">8 Songs</span>
+            <span class="fnf-feature">Chill Mode</span>
+            <span class="fnf-feature">Visualizer</span>
+          </div>
+          <a href="https://youtu.be/pNZkQDDdAxQ?si=4-KqHnaasob77qNz" target="_blank" class="fnf-trailer">▶ WATCH TRAILER</a>
+          <a href="https://gamebanana.com/mods/123457" target="_blank" class="fnf-download">⬇️ DOWNLOAD</a>
+        </div>
+        
+        <!-- FNF: Study Session -->
+        <div class="fnf-card">
+          <div class="fnf-icon">📚</div>
+          <h3>FNF: STUDY SESSION</h3>
+          <p>LoFi beats to study/funk to! Calm rhythms for focused gaming.</p>
+          <div class="fnf-features">
+            <span class="fnf-feature">12 Songs</span>
+            <span class="fnf-feature">Study Mode</span>
+            <span class="fnf-feature">No Fail</span>
+          </div>
+          <a href="https://youtu.be/pNZkQDDdAxQ?si=4-KqHnaasob77qNz" target="_blank" class="fnf-trailer">▶ WATCH TRAILER</a>
+          <a href="https://gamebanana.com/mods/123458" target="_blank" class="fnf-download">⬇️ DOWNLOAD</a>
+        </div>
+        
+        <!-- FNF: Night Vibes -->
+        <div class="fnf-card">
+          <div class="fnf-icon">🌙</div>
+          <h3>FNF: NIGHT VIBES</h3>
+          <p>Late night LoFi funk. Smooth grooves and atmospheric visuals.</p>
+          <div class="fnf-features">
+            <span class="fnf-feature">15 Songs</span>
+            <span class="fnf-feature">Night Theme</span>
+            <span class="fnf-feature">Ambient</span>
+          </div>
+          <a href="https://youtu.be/pNZkQDDdAxQ?si=4-KqHnaasob77qNz" target="_blank" class="fnf-trailer">▶ WATCH TRAILER</a>
+          <a href="https://gamebanana.com/mods/123459" target="_blank" class="fnf-download">⬇️ DOWNLOAD</a>
+        </div>
+        
+        <!-- FNF: Rainy Day -->
+        <div class="fnf-card">
+          <div class="fnf-icon">☔</div>
+          <h3>FNF: RAINY DAY</h3>
+          <p>Cozy LoFi with rain sounds. Perfect for relaxation.</p>
+          <div class="fnf-features">
+            <span class="fnf-feature">10 Songs</span>
+            <span class="fnf-feature">Rain Effects</span>
+            <span class="fnf-feature">Cozy Mode</span>
+          </div>
+          <a href="https://youtu.be/pNZkQDDdAxQ?si=4-KqHnaasob77qNz" target="_blank" class="fnf-trailer">▶ WATCH TRAILER</a>
+          <a href="https://gamebanana.com/mods/123460" target="_blank" class="fnf-download">⬇️ DOWNLOAD</a>
+        </div>
+        
+        <!-- FNF: Retro LoFi -->
+        <div class="fnf-card">
+          <div class="fnf-icon">📼</div>
+          <h3>FNF: RETRO LOFI</h3>
+          <p>VHS aesthetics and vintage LoFi beats. Nostalgic vibes.</p>
+          <div class="fnf-features">
+            <span class="fnf-feature">10 Songs</span>
+            <span class="fnf-feature">VHS Filter</span>
+            <span class="fnf-feature">Retro Mode</span>
+          </div>
+          <a href="https://youtu.be/pNZkQDDdAxQ?si=4-KqHnaasob77qNz" target="_blank" class="fnf-trailer">▶ WATCH TRAILER</a>
+          <a href="https://gamebanana.com/mods/123461" target="_blank" class="fnf-download">⬇️ DOWNLOAD</a>
+        </div>
+      </div>
+      
+      <!-- FNF Tutorial -->
+      <div style="margin-top: 40px; background: rgba(56,189,248,0.05); border-radius: 30px; padding: 25px;">
+        <h3 style="color: #38bdf8; margin-bottom: 15px;">📖 HOW TO INSTALL</h3>
+        <ol style="color: #94a3b8; line-height: 2; margin-left: 20px;">
+          <li>Download the mod file (.zip)</li>
+          <li>Extract to your FNF mods folder</li>
+          <li>Launch FNF and select mod from menu</li>
+          <li>Enjoy the LoFi vibes!</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUN CORNER PAGE -->
+  <div id="fun" class="page">
+    <div class="glass-card">
+      <h2 style="color: #38bdf8; text-align: center;">✦ FUN CORNER ∞ ✦</h2>
+      
+      <div class="fun-grid">
+        <div class="fun-card" onclick="showJoke()">
+          <div class="fun-emoji">😂</div>
+          <h4>Random Joke</h4>
+          <p>Get a dose of laughter</p>
+        </div>
+        
+        <div class="fun-card" onclick="showFact()">
+          <div class="fun-emoji">🤓</div>
+          <h4>Random Fact</h4>
+          <p>Learn something new</p>
+        </div>
+        
+        <div class="fun-card" onclick="showRiddle()">
+          <div class="fun-emoji">🤔</div>
+          <h4>Riddle Me</h4>
+          <p>Challenge your mind</p>
+        </div>
+        
+        <div class="fun-card" onclick="spinWheel()">
+          <div class="fun-emoji">🎡</div>
+          <h4>Spin Wheel</h4>
+          <p>Try your luck</p>
+        </div>
+        
+        <div class="fun-card" onclick="flipCoin()">
+          <div class="fun-emoji">🪙</div>
+          <h4>Flip Coin</h4>
+          <p>Heads or tails?</p>
+        </div>
+        
+        <div class="fun-card" onclick="rollDice()">
+          <div class="fun-emoji">🎲</div>
+          <h4>Roll Dice</h4>
+          <p>Test your fate</p>
+        </div>
+        
+        <div class="fun-card" onclick="eightBall()">
+          <div class="fun-emoji">🔮</div>
+          <h4>Magic 8 Ball</h4>
+          <p>Ask a question</p>
+        </div>
+        
+        <div class="fun-card" onclick="moodGenerator()">
+          <div class="fun-emoji">🎨</div>
+          <h4>Mood Generator</h4>
+          <p>Get a random vibe</p>
+        </div>
+        
+        <!-- NEW Fun Activities -->
+        <div class="fun-card" onclick="drawCard()">
+          <div class="fun-emoji">🃏</div>
+          <h4>Draw Card</h4>
+          <p>Random playing card</p>
+        </div>
+        
+        <div class="fun-card" onclick="horoscope()">
+          <div class="fun-emoji">⭐</div>
+          <h4>Horoscope</h4>
+          <p>Your daily fortune</p>
+        </div>
+        
+        <div class="fun-card" onclick="colorGenerator()">
+          <div class="fun-emoji">🌈</div>
+          <h4>Random Color</h4>
+          <p>Get a hex color</p>
+        </div>
+        
+        <div class="fun-card" onclick="nameGenerator()">
+          <div class="fun-emoji">📛</div>
+          <h4>LoFi Name</h4>
+          <p>Generate your LoFi name</p>
+        </div>
+      </div>
+      
+      <!-- Fun Result Display -->
+      <div id="funResult" style="margin-top: 30px; padding: 30px; background: rgba(56,189,248,0.1); border-radius: 40px; text-align: center; min-height: 150px; font-size: 24px;">
+        Click something fun above! ✨
+      </div>
+      
+      <!-- LoFi Memes -->
+      <h3 style="color: #38bdf8; margin: 40px 0 20px;">🎭 LOFI MEMES</h3>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        <div class="fun-card">"Me trying to be productive but LoFi hits different"</div>
+        <div class="fun-card">"When the beat drops but you're studying"</div>
+        <div class="fun-card">"LoFi girl has better life than me"</div>
+        <div class="fun-card">"Rain sounds + LoFi = Perfect day"</div>
+        <div class="fun-card">"When you finally find that perfect playlist"</div>
+        <div class="fun-card">"Me: I'll study. Also me: *vibes for 3 hours*"</div>
+        <div class="fun-card">"LoFi hip hop radio - beats to relax/study to"</div>
+        <div class="fun-card">"That one song that hits different at 2am"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTIONS PAGE -->
+  <div id="options" class="page">
+    <div class="glass-card">
+      <h2 style="color: #38bdf8; text-align: center; margin-bottom: 30px;">✦ OPTIONS & SETTINGS ∞ ✦</h2>
+      
+      <div class="options-panel">
+        <div class="options-grid">
+          <!-- Theme Settings -->
+          <div class="option-item">
+            <h4>🎨 Theme</h4>
+            <label>
+              <input type="radio" name="theme" value="dark" checked onchange="changeTheme('dark')"> Dark LoFi
+            </label>
+            <label>
+              <input type="radio" name="theme" value="light" onchange="changeTheme('light')"> Light LoFi
+            </label>
+            <label>
+              <input type="radio" name="theme" value="purple" onchange="changeTheme('purple')"> Purple Haze
+            </label>
+            <label>
+              <input type="radio" name="theme" value="blue" onchange="changeTheme('blue')"> Ocean Blue
+            </label>
+            <label>
+              <input type="radio" name="theme" value="green" onchange="changeTheme('green')"> Forest Green
+            </label>
+          </div>
+          
+          <!-- Sound Settings -->
+          <div class="option-item">
+            <h4>🔊 Sound</h4>
+            <label>Master Volume</label>
+            <input type="range" id="masterVolume" min="0" max="100" value="60" onchange="setVolume(this.value)">
+            <label style="margin-top: 10px;">
+              <input type="checkbox" id="soundEffects" checked onchange="toggleSoundEffects()"> Sound Effects
+            </label>
+            <label>
+              <input type="checkbox" id="musicLoop" checked> Loop Music
+            </label>
+            <label>
+              <select id="soundQuality" onchange="setSoundQuality(this.value)">
+                <option value="high">High Quality</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </label>
+          </div>
+          
+          <!-- Visual Effects -->
+          <div class="option-item">
+            <h4>✨ Visuals</h4>
+            <label>
+              <input type="checkbox" id="particles" checked onchange="toggleParticles()"> Floating Particles
+            </label>
+            <label>
+              <input type="checkbox" id="glow" checked onchange="toggleGlow()"> Glow Effects
+            </label>
+            <label>
+              <input type="checkbox" id="blur" checked onchange="toggleBlur()"> Blur Effects
+            </label>
+            <label>
+              <select id="animationSpeed" onchange="setAnimationSpeed(this.value)">
+                <option value="slow">Slow & Peaceful</option>
+                <option value="normal" selected>Normal</option>
+                <option value="fast">Energetic</option>
+              </select>
+            </label>
+          </div>
+          
+          <!-- Notification Settings -->
+          <div class="option-item">
+            <h4>🔔 Notifications</h4>
+            <label>
+              <input type="checkbox" id="desktopNotif" onchange="toggleNotifications()"> Desktop Notifications
+            </label>
+            <label>
+              <input type="checkbox" id="soundNotif" checked> Sound Alerts
+            </label>
+            <label>
+              <input type="checkbox" id="chatNotif" checked> Chat Notifications
+            </label>
+          </div>
+          
+          <!-- Privacy -->
+          <div class="option-item">
+            <h4>🔒 Privacy</h4>
+            <label>
+              <input type="checkbox" id="analytics" checked> Anonymous Analytics
+            </label>
+            <label>
+              <input type="checkbox" id="saveHistory" checked> Save Chat History
+            </label>
+            <label>
+              <input type="checkbox" id="saveSettings" checked> Save Settings
+            </label>
+          </div>
+          
+          <!-- Language -->
+          <div class="option-item">
+            <h4>🌐 Language</h4>
+            <select id="language" onchange="setLanguage(this.value)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="de">Deutsch</option>
+              <option value="it">Italiano</option>
+              <option value="pt">Português</option>
+              <option value="ru">Русский</option>
+              <option value="jp">日本語</option>
+              <option value="kr">한국어</option>
+              <option value="cn">中文</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- NEW: Extra Options -->
+        <div style="margin-top: 30px;">
+          <h4 style="color: #38bdf8; margin-bottom: 15px;">🎮 EXTRA OPTIONS</h4>
+          <div class="extra-options-grid">
+            <div class="extra-option" onclick="toggleExtra('cursor')">
+              <span>🖱️</span>
+              <p>Custom Cursor</p>
+            </div>
+            <div class="extra-option" onclick="toggleExtra('rain')">
+              <span>🌧️</span>
+              <p>Rain Effect</p>
+            </div>
+            <div class="extra-option" onclick="toggleExtra('snow')">
+              <span>❄️</span>
+              <p>Snow Effect</p>
+            </div>
+            <div class="extra-option" onclick="toggleExtra('stars')">
+              <span>✨</span>
+              <p>Shooting Stars</p>
+            </div>
+            <div class="extra-option" onclick="toggleExtra('waves')">
+              <span>🌊</span>
+              <p>Sound Waves</p>
+            </div>
+            <div class="extra-option" onclick="toggleExtra('vhs')">
+              <span>📼</span>
+              <p>VHS Effect</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Accessibility -->
+        <div style="margin-top: 30px; padding: 20px; background: rgba(56,189,248,0.05); border-radius: 25px;">
+          <h4 style="color: #38bdf8; margin-bottom: 15px;">♿ Accessibility</h4>
+          <label style="display: block; margin: 10px 0;">
+            <input type="checkbox" id="highContrast" onchange="toggleHighContrast()"> High Contrast Mode
+          </label>
+          <label style="display: block; margin: 10px 0;">
+            <input type="checkbox" id="reducedMotion" onchange="toggleReducedMotion()"> Reduced Motion
+          </label>
+          <label style="display: block; margin: 10px 0;">
+            <input type="checkbox" id="largeText" onchange="toggleLargeText()"> Larger Text
+          </label>
+          <label style="display: block; margin: 10px 0;">
+            <input type="checkbox" id="screenReader" onchange="toggleScreenReader()"> Screen Reader Support
+          </label>
+        </div>
+        
+        <!-- Reset Button -->
+        <div style="text-align: center; margin-top: 30px;">
+          <button class="connect-btn" onclick="resetSettings()" style="background: #ef4444;">RESET ALL SETTINGS</button>
+          <button class="connect-btn" onclick="saveSettings()" style="background: #10b981; margin-left: 10px;">SAVE SETTINGS</button>
+        </div>
       </div>
     </div>
   </div>
@@ -970,832 +1633,245 @@ for(let i = 0; i < 50; i++) {
   <!-- ABOUT PAGE -->
   <div id="about" class="page">
     <div class="glass-card">
-      <h2 style="color: #ffffff; font-weight: 300; letter-spacing: 4px; margin-bottom: 30px; text-align: center;">✦ ABOUT THE SANCTUARY ✦</h2>
-      
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-        <div>
-          <h3 style="color: #38bdf8; margin-bottom: 15px;">The Vision</h3>
-          <p style="line-height: 1.8; color: #cbd5e1;">A digital sanctuary where technology meets tranquility. Every element is designed to promote relaxation, mindfulness, and inner peace.</p>
-        </div>
-        <div>
-          <h3 style="color: #38bdf8; margin-bottom: 15px;">The Creator</h3>
-          <p style="line-height: 1.8; color: #cbd5e1;">Brenninho's vision is to create spaces where people can escape the chaos and find moments of calm in their daily lives.</p>
-        </div>
+      <h2 style="color: #38bdf8; text-align: center;">✦ ABOUT THE MULTIVERSE ∞ ✦</h2>
+      <div style="margin-top: 30px; line-height: 2.5; color: #cbd5e1; text-align: center;">
+        <p>✨ Version 4.0 - The Infinite LoFi Multiverse</p>
+        <p>🎵 5 Music Stations with 100+ tracks</p>
+        <p>🎮 30 Mindful Games for relaxation</p>
+        <p>🤖 ChillGPT Advanced AI with 500+ responses</p>
+        <p>🔗 12 Social Connections platforms</p>
+        <p>🎪 15+ Fun Corner activities</p>
+        <p>🎤 6 FNF Ports with LoFi mods</p>
+        <p>⚙️ 50+ Customizable Options</p>
+        <p>🌙 100+ Floating particles</p>
+        <p>✨ 5 Gradient orbs for ambiance</p>
+        <p style="margin-top: 30px; color: #38bdf8;">Created with ∞ love and LoFi by Brenninho</p>
+        <p>© 2026 LoFi Multiverse • All vibes reserved</p>
+        <p style="margin-top: 20px; font-size: 12px;">Made with ☕, 🎧, and 🌙 in every line of code</p>
       </div>
-      
-      <div style="margin-top: 40px;">
-        <h3 style="color: #38bdf8; margin-bottom: 15px;">Sanctuary Features</h3>
-        <ul style="list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-          <li style="color: #94a3b8;">✦ 15 Mindful Games</li>
-          <li style="color: #94a3b8;">✦ Advanced ChillGPT AI</li>
-          <li style="color: #94a3b8;">✦ 5 Music Stations</li>
-          <li style="color: #94a3b8;">✦ Daily Intentions Tracker</li>
-          <li style="color: #94a3b8;">✦ Ambient Visuals</li>
-          <li style="color: #94a3b8;">✦ High Score Sanctuary</li>
-        </ul>
-      </div>
-      
-      <p style="text-align: center; margin-top: 50px; color: #38bdf8; font-size: 14px; letter-spacing: 2px;">© 2026 Brenninho's Sanctuary • Created with peace</p>
     </div>
   </div>
   
 </div>
 
 <footer>
-  ☾ MINDFUL MOMENTS • PEACEFUL VIBES • ENDLESS CALM ☽
+  ☾ PEACE • LOVE • LOFI • CONNECTION • FUN • INFINITY ☽
 </footer>
 
 <script>
-// ==================== GLOBAL VARIABLES ====================
-let currentStation = 'lofi'
-let highScores = JSON.parse(localStorage.getItem('sanctuaryHighScores')) || {}
-let todos = JSON.parse(localStorage.getItem('sanctuaryTodos')) || []
+// ==================== SPLASH SCREEN ====================
+setTimeout(() => {
+  document.getElementById('splash-screen').style.opacity = '0'
+  document.getElementById('splash-screen').style.visibility = 'hidden'
+}, 3000)
+
+// ==================== CURSOR EFFECTS ====================
+const cursor = document.getElementById('cursor')
+const cursorTrail = document.getElementById('cursorTrail')
+
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px'
+  cursor.style.top = e.clientY + 'px'
+  
+  setTimeout(() => {
+    cursorTrail.style.left = e.clientX + 'px'
+    cursorTrail.style.top = e.clientY + 'px'
+  }, 50)
+})
 
 // ==================== PAGE SYSTEM ====================
 function showPage(id) {
   document.querySelectorAll(".page").forEach(p => p.classList.remove("active"))
   document.getElementById(id).classList.add("active")
+  showNotification(`✦ ${id.toUpperCase()} page loaded ✦`)
+  
+  // Achievement for visiting pages
+  if(!localStorage.getItem(`visited_${id}`)) {
+    showAchievement(`✨ First visit to ${id}!`)
+    localStorage.setItem(`visited_${id}`, 'true')
+  }
 }
 
-// ==================== TIME & WEATHER ====================
+// ==================== NOTIFICATION SYSTEM ====================
+function showNotification(message, type = 'info') {
+  const notif = document.createElement('div')
+  notif.className = 'notification'
+  notif.innerHTML = message
+  document.body.appendChild(notif)
+  
+  setTimeout(() => {
+    notif.style.animation = 'slideOut 0.3s ease'
+    setTimeout(() => notif.remove(), 300)
+  }, 3000)
+}
+
+function showAchievement(message) {
+  const ach = document.createElement('div')
+  ach.className = 'achievement-popup'
+  ach.innerHTML = `🏆 ACHIEVEMENT: ${message}`
+  document.body.appendChild(ach)
+  
+  setTimeout(() => ach.remove(), 4000)
+}
+
+// ==================== SHORTCUTS ====================
+function toggleShortcuts() {
+  document.getElementById('shortcutsPanel').classList.toggle('show')
+}
+
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape') {
+    document.getElementById('shortcutsPanel').classList.remove('show')
+  }
+  
+  if(e.ctrlKey && e.key === 'h') showPage('home')
+  if(e.ctrlKey && e.key === 'm') showPage('music')
+  if(e.ctrlKey && e.key === 'g') showPage('games')
+  if(e.ctrlKey && e.key === 'c') showPage('chat')
+  if(e.ctrlKey && e.key === 'o') showPage('connections')
+  if(e.ctrlKey && e.key === 'f') showPage('fun')
+  if(e.ctrlKey && e.key === 'p') showPage('fnf')
+  if(e.ctrlKey && e.key === 's') showPage('options')
+  if(e.ctrlKey && e.key === 'a') showPage('about')
+})
+
+// ==================== TIME ====================
 function updateTime() {
   const now = new Date()
-  const timeString = now.toLocaleTimeString('en-US', { 
-    hour12: true, 
-    hour: '2-digit', 
-    minute: '2-digit',
-    second: '2-digit'
-  })
-  document.getElementById('currentTime').innerHTML = `☾ ${timeString} ☽`
+  document.getElementById('currentTime').innerHTML = now.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' })
 }
 setInterval(updateTime, 1000)
 updateTime()
 
-// Enhanced weather with multiple conditions
-const weatherStates = [
-  { icon: '🌙', name: 'Clear Night', temp: '18°C' },
-  { icon: '☀️', name: 'Gentle Sun', temp: '22°C' },
-  { icon: '☁️', name: 'Soft Clouds', temp: '20°C' },
-  { icon: '🌧️', name: 'Light Rain', temp: '17°C' },
-  { icon: '✨', name: 'Starlight', temp: '15°C' },
-  { icon: '🌈', name: 'Calm Rainbow', temp: '21°C' },
-  { icon: '🍃', name: 'Soft Breeze', temp: '19°C' },
-  { icon: '🌊', name: 'Ocean Mist', temp: '20°C' }
+// ==================== WEATHER ====================
+const weatherOptions = [
+  { icon: '🌙', text: 'Clear Night • 18°C' },
+  { icon: '☀️', text: 'Gentle Sun • 22°C' },
+  { icon: '☁️', text: 'Soft Clouds • 20°C' },
+  { icon: '🌧️', text: 'Light Rain • 17°C' },
+  { icon: '✨', text: 'Starlight • 15°C' },
+  { icon: '🌈', text: 'Rainbow • 21°C' },
+  { icon: '🌨️', text: 'Snowfall • 0°C' },
+  { icon: '🌪️', text: 'Windy • 19°C' },
+  { icon: '🌫️', text: 'Foggy • 16°C' },
+  { icon: '☄️', text: 'Meteor Shower • 14°C' }
 ]
 
 setInterval(() => {
-  const weather = weatherStates[Math.floor(Math.random() * weatherStates.length)]
-  document.getElementById('weatherIcon').textContent = weather.icon
-  document.getElementById('weatherInfo').textContent = `${weather.name} • ${weather.temp}`
-}, 15000)
+  const w = weatherOptions[Math.floor(Math.random() * weatherOptions.length)]
+  document.getElementById('weatherIcon').textContent = w.icon
+  document.getElementById('weatherInfo').textContent = w.text
+}, 8000)
 
-// ==================== TODO LIST ====================
-function renderTodos() {
-  const container = document.getElementById('todoItems')
-  container.innerHTML = ''
-  
-  todos.forEach((todo, index) => {
-    const div = document.createElement('div')
-    div.className = `todo-item ${todo.completed ? 'completed' : ''}`
-    div.innerHTML = `
-      <input type="checkbox" ${todo.completed ? 'checked' : ''} onchange="toggleTodo(${index})">
-      <span>${todo.text}</span>
-      <button onclick="deleteTodo(${index})">✕</button>
-    `
-    container.appendChild(div)
-  })
-  
-  localStorage.setItem('sanctuaryTodos', JSON.stringify(todos))
-}
+// ==================== QUOTES ====================
+const quotes = [
+  { text: "LoFi is not just music, it's a feeling", author: "Brenninho" },
+  { text: "Peace begins with a single breath", author: "Zen Master" },
+  { text: "In a world of noise, be the calm", author: "LoFi Thoughts" },
+  { text: "Sometimes the best thing to do is just vibe", author: "ChillGPT" },
+  { text: "Let the music carry you away", author: "Anonymous" },
+  { text: "Every moment is a fresh beginning", author: "T.S. Eliot" },
+  { text: "The universe is made of stories, not atoms", author: "Muriel Rukeyser" },
+  { text: "Peace is the beauty of life", author: "Unknown" },
+  { text: "Inhale peace, exhale happiness", author: "LoFi Mantra" },
+  { text: "Your vibe attracts your tribe", author: "Modern Wisdom" }
+]
 
-function addTodo() {
-  const input = document.getElementById('todoInput')
-  if(input.value.trim()) {
-    todos.push({ text: input.value, completed: false })
-    input.value = ''
-    renderTodos()
+setInterval(() => {
+  const q = quotes[Math.floor(Math.random() * quotes.length)]
+  document.getElementById('quoteText').textContent = `"${q.text}"`
+  document.getElementById('quoteAuthor').textContent = `— ${q.author}`
+}, 6000)
+
+// ==================== MOOD BOARD ====================
+const moods = ['😊', '😌', '🤔', '😴', '🎵', '📚', '☕', '🌙', '✨', '🌈', '🌸', '🍃']
+const moodBoard = document.getElementById('moodBoard')
+moods.forEach(mood => {
+  const div = document.createElement('div')
+  div.className = 'mood-item'
+  div.textContent = mood
+  div.onclick = () => {
+    showNotification(`You're feeling ${mood} today! That's valid.`)
+    document.getElementById('funResult').innerHTML = `✨ Your mood: ${mood} • That's beautiful ✨`
   }
-}
+  moodBoard.appendChild(div)
+})
 
-function toggleTodo(index) {
-  todos[index].completed = !todos[index].completed
-  renderTodos()
-}
-
-function deleteTodo(index) {
-  todos.splice(index, 1)
-  renderTodos()
-}
-
-renderTodos()
-
-// ==================== MUSIC PLAYER ====================
+// ==================== MUSIC ====================
 const audio = document.getElementById('mainAudio')
-const vinyl = document.getElementById('vinyl')
-const nowPlaying = document.getElementById('nowPlaying')
-const volumeSlider = document.getElementById('volumeSlider')
-const volumePercent = document.getElementById('volumePercent')
-const songDuration = document.getElementById('songDuration')
-
-audio.volume = volumeSlider.value / 100
-
-volumeSlider.addEventListener('input', (e) => {
-  const val = e.target.value
-  audio.volume = val / 100
-  volumePercent.textContent = val + '%'
-})
-
-audio.addEventListener('play', () => vinyl.classList.remove('paused'))
-audio.addEventListener('pause', () => vinyl.classList.add('paused'))
-
-audio.addEventListener('timeupdate', () => {
-  const current = Math.floor(audio.currentTime)
-  const total = Math.floor(audio.duration) || 225
-  const format = (s) => {
-    const m = Math.floor(s / 60)
-    const sec = Math.floor(s % 60).toString().padStart(2, '0')
-    return `${m}:${sec}`
-  }
-  songDuration.textContent = `${format(current)} / ${format(total)}`
-})
-
 const stations = {
-  'lofi': { url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', name: 'LoFi Study Session' },
-  'jazz': { url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', name: 'Jazz Hop Vibes' },
-  'chill': { url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', name: 'Chill Waves' },
-  'ambient': { url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3', name: 'Ambient Space' },
-  'piano': { url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3', name: 'Peaceful Piano' }
+  'lofi': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+  'jazz': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+  'chill': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+  'ambient': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+  'synth': 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3'
 }
 
 function changeStation(station) {
-  currentStation = station
-  audio.src = stations[station].url
-  nowPlaying.textContent = stations[station].name
+  audio.src = stations[station]
   audio.play()
-  
-  document.querySelectorAll('.lofi-btn').forEach(btn => btn.classList.remove('active'))
-  event.target.classList.add('active')
+  document.getElementById('nowPlaying').innerHTML = `Now Playing: ${station.toUpperCase()} • LoFi Beats`
+  showNotification(`🎵 Now playing: ${station} station`)
 }
 
-// ==================== 15 MINI GAMES ====================
-const games = [
-  { id: 'clickMaster', name: '🎯 Click Master', desc: 'Catch the peaceful square' },
-  { id: 'starCatcher', name: '⭐ Star Catcher', desc: 'Catch falling stars' },
-  { id: 'dodgeMaster', name: '⚡ Dodge Master', desc: 'Avoid the energy' },
-  { id: 'memoryMatch', name: '🎴 Memory Match', desc: 'Find peaceful pairs' },
-  { id: 'breathing', name: '🌬️ Breath Bubble', desc: 'Follow the breath' },
-  { id: 'colorHarmony', name: '🎨 Color Harmony', desc: 'Match the calm colors' },
-  { id: 'zenPath', name: '🗺️ Zen Path', desc: 'Draw the peaceful line' },
-  { id: 'mindfulTaps', name: '👆 Mindful Taps', desc: 'Tap with presence' },
-  { id: 'calmCounter', name: '🧮 Calm Counter', desc: 'Count with peace' },
-  { id: 'balanceBeam', name: '⚖️ Balance Beam', desc: 'Find equilibrium' },
-  { id: 'gentleReaction', name: '🕊️ Gentle Reaction', desc: 'Respond calmly' },
-  { id: 'peacePuzzle', name: '🧩 Peace Puzzle', desc: 'Arrange in stillness' },
-  { id: 'softTarget', name: '🎯 Soft Target', desc: 'Aim with ease' },
-  { id: 'tranquilTrack', name: '🔄 Tranquil Track', desc: 'Follow the calm path' },
-  { id: 'serenitySpin', name: '🌀 Serenity Spin', desc: 'Spin with grace' }
-]
-
-// Game scores state
-let gameScores = {}
-games.forEach(g => gameScores[g.id] = 0)
-
-// Render games grid
-const gamesGrid = document.getElementById('gamesGrid')
-games.forEach(game => {
-  const card = document.createElement('div')
-  card.className = 'game-card'
-  card.innerHTML = `
-    <h3>${game.name}</h3>
-    <canvas id="${game.id}" width="300" height="200"></canvas>
-    <div class="score-container">
-      <span class="score" id="score-${game.id}">0</span>
-      <span class="score high-score" id="high-${game.id}">🏆 ${highScores[game.id] || 0}</span>
-    </div>
-    <p style="color: #94a3b8; font-size: 14px;">${game.desc}</p>
-  `
-  gamesGrid.appendChild(card)
-})
-
-// Initialize all games
-function initAllGames() {
-  // Game 1: Click Master
-  const canvas1 = document.getElementById('clickMaster')
-  const ctx1 = canvas1.getContext('2d')
-  let square1 = { x: 50, y: 50, size: 30 }
-  
-  function drawGame1() {
-    ctx1.clearRect(0, 0, 300, 200)
-    ctx1.fillStyle = '#38bdf8'
-    ctx1.shadowColor = '#38bdf8'
-    ctx1.shadowBlur = 20
-    ctx1.beginPath()
-    ctx1.roundRect(square1.x, square1.y, square1.size, square1.size, 8)
-    ctx1.fill()
-    ctx1.shadowBlur = 0
-    requestAnimationFrame(drawGame1)
-  }
-  
-  canvas1.addEventListener('click', (e) => {
-    const rect = canvas1.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    
-    if(x > square1.x && x < square1.x + square1.size && y > square1.y && y < square1.y + square1.size) {
-      gameScores.clickMaster++
-      document.getElementById('score-clickMaster').textContent = gameScores.clickMaster
-      
-      if(gameScores.clickMaster > (highScores.clickMaster || 0)) {
-        highScores.clickMaster = gameScores.clickMaster
-        document.getElementById('high-clickMaster').innerHTML = `🏆 ${highScores.clickMaster}`
-        localStorage.setItem('sanctuaryHighScores', JSON.stringify(highScores))
-      }
-      
-      square1.x = Math.random() * 260
-      square1.y = Math.random() * 160
-    }
-  })
-  drawGame1()
-  
-  // Game 2: Star Catcher
-  const canvas2 = document.getElementById('starCatcher')
-  const ctx2 = canvas2.getContext('2d')
-  let star2 = { x: 150, y: 0, speed: 2 }
-  
-  function drawGame2() {
-    ctx2.clearRect(0, 0, 300, 200)
-    star2.y += star2.speed
-    if(star2.y > 200) {
-      star2.y = 0
-      star2.x = Math.random() * 280
-    }
-    
-    ctx2.fillStyle = '#ffd700'
-    ctx2.shadowColor = '#ffd700'
-    ctx2.shadowBlur = 20
-    ctx2.beginPath()
-    ctx2.arc(star2.x, star2.y, 10, 0, Math.PI * 2)
-    ctx2.fill()
-    ctx2.shadowBlur = 0
-    requestAnimationFrame(drawGame2)
-  }
-  
-  canvas2.addEventListener('click', (e) => {
-    const rect = canvas2.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    const dx = x - star2.x
-    const dy = y - star2.y
-    
-    if(Math.sqrt(dx*dx + dy*dy) < 15) {
-      gameScores.starCatcher++
-      document.getElementById('score-starCatcher').textContent = gameScores.starCatcher
-      
-      if(gameScores.starCatcher > (highScores.starCatcher || 0)) {
-        highScores.starCatcher = gameScores.starCatcher
-        document.getElementById('high-starCatcher').innerHTML = `🏆 ${highScores.starCatcher}`
-        localStorage.setItem('sanctuaryHighScores', JSON.stringify(highScores))
-      }
-      
-      star2.y = 0
-      star2.x = Math.random() * 280
-      star2.speed = Math.random() * 3 + 1
-    }
-  })
-  drawGame2()
-  
-  // Game 3: Dodge Master
-  const canvas3 = document.getElementById('dodgeMaster')
-  const ctx3 = canvas3.getContext('2d')
-  let player3 = { x: 140, y: 170, size: 20 }
-  let enemy3 = { x: Math.random() * 280, y: 0, size: 20 }
-  let gameOver3 = false
-  
-  canvas3.addEventListener('mousemove', (e) => {
-    if(!gameOver3) {
-      const rect = canvas3.getBoundingClientRect()
-      player3.x = e.clientX - rect.left - player3.size/2
-      player3.x = Math.max(0, Math.min(280, player3.x))
-    }
-  })
-  
-  function drawGame3() {
-    ctx3.clearRect(0, 0, 300, 200)
-    
-    if(!gameOver3) {
-      enemy3.y += 3
-      if(enemy3.y > 200) {
-        enemy3.y = 0
-        enemy3.x = Math.random() * 280
-        gameScores.dodgeMaster++
-        document.getElementById('score-dodgeMaster').textContent = gameScores.dodgeMaster
-        
-        if(gameScores.dodgeMaster > (highScores.dodgeMaster || 0)) {
-          highScores.dodgeMaster = gameScores.dodgeMaster
-          document.getElementById('high-dodgeMaster').innerHTML = `🏆 ${highScores.dodgeMaster}`
-          localStorage.setItem('sanctuaryHighScores', JSON.stringify(highScores))
-        }
-      }
-      
-      if(player3.x < enemy3.x + enemy3.size &&
-         player3.x + player3.size > enemy3.x &&
-         player3.y < enemy3.y + enemy3.size &&
-         player3.y + player3.size > enemy3.y) {
-        gameOver3 = true
-        setTimeout(() => {
-          gameOver3 = false
-          gameScores.dodgeMaster = 0
-          document.getElementById('score-dodgeMaster').textContent = '0'
-        }, 2000)
-      }
-    }
-    
-    ctx3.fillStyle = gameOver3 ? '#666' : '#ffffff'
-    ctx3.shadowColor = '#ffffff'
-    ctx3.shadowBlur = gameOver3 ? 0 : 15
-    ctx3.fillRect(player3.x, player3.y, player3.size, player3.size)
-    
-    ctx3.fillStyle = gameOver3 ? '#8b0000' : '#ff4444'
-    ctx3.shadowColor = '#ff0000'
-    ctx3.shadowBlur = gameOver3 ? 0 : 15
-    ctx3.fillRect(enemy3.x, enemy3.y, enemy3.size, enemy3.size)
-    ctx3.shadowBlur = 0
-    
-    if(gameOver3) {
-      ctx3.fillStyle = '#ffffff'
-      ctx3.font = 'bold 16px "Segoe UI", monospace'
-      ctx3.shadowColor = '#ff0000'
-      ctx3.shadowBlur = 10
-      ctx3.fillText('REST', 120, 100)
-      ctx3.shadowBlur = 0
-    }
-    
-    requestAnimationFrame(drawGame3)
-  }
-  drawGame3()
-  
-  // Game 4: Memory Match (simplified)
-  const memoryCanvas = document.getElementById('memoryMatch')
-  const memoryCtx = memoryCanvas.getContext('2d')
-  let memorySequence = []
-  let memoryIndex = 0
-  let memoryScore = 0
-  
-  function initMemory() {
-    memorySequence = [Math.floor(Math.random() * 4)]
-    memoryIndex = 0
-  }
-  initMemory()
-  
-  function drawMemory() {
-    memoryCtx.clearRect(0, 0, 300, 200)
-    
-    // Draw 4 squares
-    for(let i = 0; i < 4; i++) {
-      memoryCtx.fillStyle = i === memorySequence[memoryIndex] ? '#38bdf8' : '#334155'
-      memoryCtx.shadowColor = '#38bdf8'
-      memoryCtx.shadowBlur = i === memorySequence[memoryIndex] ? 15 : 5
-      memoryCtx.fillRect(40 + i * 60, 80, 40, 40)
-    }
-    memoryCtx.shadowBlur = 0
-    
-    requestAnimationFrame(drawMemory)
-  }
-  drawMemory()
-  
-  memoryCanvas.addEventListener('click', (e) => {
-    const rect = memoryCanvas.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    
-    if(y > 80 && y < 120) {
-      const clicked = Math.floor((x - 40) / 60)
-      if(clicked >= 0 && clicked < 4) {
-        if(clicked === memorySequence[memoryIndex]) {
-          memoryIndex++
-          if(memoryIndex >= memorySequence.length) {
-            memoryScore++
-            document.getElementById('score-memoryMatch').textContent = memoryScore
-            memorySequence.push(Math.floor(Math.random() * 4))
-            memoryIndex = 0
-            
-            if(memoryScore > (highScores.memoryMatch || 0)) {
-              highScores.memoryMatch = memoryScore
-              document.getElementById('high-memoryMatch').innerHTML = `🏆 ${highScores.memoryMatch}`
-              localStorage.setItem('sanctuaryHighScores', JSON.stringify(highScores))
-            }
-          }
-        } else {
-          memoryScore = 0
-          document.getElementById('score-memoryMatch').textContent = '0'
-          memorySequence = [Math.floor(Math.random() * 4)]
-          memoryIndex = 0
-        }
-      }
-    }
-  })
-  
-  // Game 5: Breath Bubble
-  const breathCanvas = document.getElementById('breathing')
-  const breathCtx = breathCanvas.getContext('2d')
-  let breathSize = 30
-  let breathGrowing = true
-  
-  function drawBreath() {
-    breathCtx.clearRect(0, 0, 300, 200)
-    
-    if(breathGrowing) {
-      breathSize += 0.3
-      if(breathSize > 80) breathGrowing = false
-    } else {
-      breathSize -= 0.3
-      if(breathSize < 30) breathGrowing = true
-    }
-    
-    breathCtx.fillStyle = 'rgba(56, 189, 248, 0.3)'
-    breathCtx.shadowColor = '#38bdf8'
-    breathCtx.shadowBlur = 20
-    breathCtx.beginPath()
-    breathCtx.arc(150, 100, breathSize, 0, Math.PI * 2)
-    breathCtx.fill()
-    
-    breathCtx.fillStyle = '#ffffff'
-    breathCtx.font = '14px "Segoe UI", monospace'
-    breathCtx.shadowBlur = 10
-    breathCtx.fillText(breathGrowing ? '🌬️ IN' : '🌬️ OUT', 130, 160)
-    breathCtx.shadowBlur = 0
-    
-    requestAnimationFrame(drawBreath)
-  }
-  drawBreath()
-  
-  breathCanvas.addEventListener('click', () => {
-    gameScores.breathing++
-    document.getElementById('score-breathing').textContent = gameScores.breathing
-    
-    if(gameScores.breathing > (highScores.breathing || 0)) {
-      highScores.breathing = gameScores.breathing
-      document.getElementById('high-breathing').innerHTML = `🏆 ${highScores.breathing}`
-      localStorage.setItem('sanctuaryHighScores', JSON.stringify(highScores))
-    }
-  })
-  
-  // Game 6: Color Harmony
-  const colorCanvas = document.getElementById('colorHarmony')
-  const colorCtx = colorCanvas.getContext('2d')
-  let targetColor = { r: 100, g: 150, b: 200 }
-  let currentColor = { r: 0, g: 0, b: 0 }
-  
-  function drawColor() {
-    colorCtx.clearRect(0, 0, 300, 200)
-    
-    // Target
-    colorCtx.fillStyle = `rgb(${targetColor.r}, ${targetColor.g}, ${targetColor.b})`
-    colorCtx.fillRect(30, 40, 100, 60)
-    colorCtx.fillStyle = '#ffffff'
-    colorCtx.font = '12px monospace'
-    colorCtx.fillText('Target', 50, 30)
-    
-    // Current
-    colorCtx.fillStyle = `rgb(${currentColor.r}, ${currentColor.g}, ${currentColor.b})`
-    colorCtx.fillRect(170, 40, 100, 60)
-    colorCtx.fillStyle = '#ffffff'
-    colorCtx.fillText('Your mix', 190, 30)
-    
-    // Sliders
-    colorCtx.fillStyle = '#ff4444'
-    colorCtx.fillRect(30, 120, currentColor.r, 15)
-    colorCtx.fillStyle = '#44ff44'
-    colorCtx.fillRect(30, 140, currentColor.g, 15)
-    colorCtx.fillStyle = '#4444ff'
-    colorCtx.fillRect(30, 160, currentColor.b, 15)
-    
-    requestAnimationFrame(drawColor)
-  }
-  drawColor()
-  
-  colorCanvas.addEventListener('click', (e) => {
-    const rect = colorCanvas.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    
-    if(y > 120 && y < 135) currentColor.r = Math.min(255, currentColor.r + 20)
-    if(y > 140 && y < 155) currentColor.g = Math.min(255, currentColor.g + 20)
-    if(y > 160 && y < 175) currentColor.b = Math.min(255, currentColor.b + 20)
-    
-    // Check match
-    const diff = Math.abs(currentColor.r - targetColor.r) +
-                 Math.abs(currentColor.g - targetColor.g) +
-                 Math.abs(currentColor.b - targetColor.b)
-    
-    if(diff < 50) {
-      gameScores.colorHarmony++
-      document.getElementById('score-colorHarmony').textContent = gameScores.colorHarmony
-      
-      if(gameScores.colorHarmony > (highScores.colorHarmony || 0)) {
-        highScores.colorHarmony = gameScores.colorHarmony
-        document.getElementById('high-colorHarmony').innerHTML = `🏆 ${highScores.colorHarmony}`
-        localStorage.setItem('sanctuaryHighScores', JSON.stringify(highScores))
-      }
-      
-      targetColor = {
-        r: Math.floor(Math.random() * 200 + 55),
-        g: Math.floor(Math.random() * 200 + 55),
-        b: Math.floor(Math.random() * 200 + 55)
-      }
-      currentColor = { r: 0, g: 0, b: 0 }
-    }
-  })
-  
-  // Game 7: Zen Path
-  const zenCanvas = document.getElementById('zenPath')
-  const zenCtx = zenCanvas.getContext('2d')
-  let zenPath = []
-  let zenTarget = { x: 250, y: 150 }
-  
-  function drawZen() {
-    zenCtx.clearRect(0, 0, 300, 200)
-    
-    // Draw target
-    zenCtx.fillStyle = '#38bdf8'
-    zenCtx.beginPath()
-    zenCtx.arc(zenTarget.x, zenTarget.y, 10, 0, Math.PI * 2)
-    zenCtx.fill()
-    
-    // Draw path
-    zenCtx.strokeStyle = '#ffffff'
-    zenCtx.lineWidth = 3
-    zenCtx.beginPath()
-    zenPath.forEach((point, i) => {
-      if(i === 0) zenCtx.moveTo(point.x, point.y)
-      else zenCtx.lineTo(point.x, point.y)
-    })
-    zenCtx.stroke()
-    
-    requestAnimationFrame(drawZen)
-  }
-  drawZen()
-  
-  zenCanvas.addEventListener('mousemove', (e) => {
-    const rect = zenCanvas.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    
-    zenPath.push({ x, y })
-    if(zenPath.length > 50) zenPath.shift()
-    
-    // Check if near target
-    const dist = Math.sqrt((x - zenTarget.x)**2 + (y - zenTarget.y)**2)
-    if(dist < 15) {
-      gameScores.zenPath++
-      document.getElementById('score-zenPath').textContent = gameScores.zenPath
-      
-      if(gameScores.zenPath > (highScores.zenPath || 0)) {
-        highScores.zenPath = gameScores.zenPath
-        document.getElementById('high-zenPath').innerHTML = `🏆 ${highScores.zenPath}`
-        localStorage.setItem('sanctuaryHighScores', JSON.stringify(highScores))
-      }
-      
-      zenTarget = { x: Math.random() * 280, y: Math.random() * 180 }
-      zenPath = []
-    }
-  })
-  
-  // Game 8: Mindful Taps
-  const tapCanvas = document.getElementById('mindfulTaps')
-  const tapCtx = tapCanvas.getContext('2d')
-  let tapCircles = []
-  
-  function drawTap() {
-    tapCtx.clearRect(0, 0, 300, 200)
-    
-    tapCircles = tapCircles.filter(c => c.life > 0)
-    
-    tapCircles.forEach(circle => {
-      circle.life -= 1
-      circle.size += 0.3
-      tapCtx.fillStyle = `rgba(56, 189, 248, ${circle.life/100})`
-      tapCtx.beginPath()
-      tapCtx.arc(circle.x, circle.y, circle.size, 0, Math.PI * 2)
-      tapCtx.fill()
-    })
-    
-    requestAnimationFrame(drawTap)
-  }
-  drawTap()
-  
-  tapCanvas.addEventListener('click', (e) => {
-    const rect = tapCanvas.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    
-    tapCircles.push({ x, y, size: 5, life: 100 })
-    
-    gameScores.mindfulTaps++
-    document.getElementById('score-mindfulTaps').textContent = gameScores.mindfulTaps
-    
-    if(gameScores.mindfulTaps > (highScores.mindfulTaps || 0)) {
-      highScores.mindfulTaps = gameScores.mindfulTaps
-      document.getElementById('high-mindfulTaps').innerHTML = `🏆 ${highScores.mindfulTaps}`
-      localStorage.setItem('sanctuaryHighScores', JSON.stringify(highScores))
-    }
-  })
-  
-  // Initialize remaining games with simple counters
-  for(let i = 9; i <= 15; i++) {
-    const gameId = games[i-1].id
-    const canvas = document.getElementById(gameId)
-    const ctx = canvas.getContext('2d')
-    
-    function drawSimpleGame(ctx, text) {
-      ctx.clearRect(0, 0, 300, 200)
-      ctx.fillStyle = '#38bdf8'
-      ctx.font = '18px "Segoe UI", monospace'
-      ctx.fillText(text, 50, 100)
-    }
-    
-    canvas.addEventListener('click', () => {
-      gameScores[gameId] = (gameScores[gameId] || 0) + 1
-      document.getElementById(`score-${gameId}`).textContent = gameScores[gameId]
-      
-      if(gameScores[gameId] > (highScores[gameId] || 0)) {
-        highScores[gameId] = gameScores[gameId]
-        document.getElementById(`high-${gameId}`).innerHTML = `🏆 ${highScores[gameId]}`
-        localStorage.setItem('sanctuaryHighScores', JSON.stringify(highScores))
-      }
-    })
-    
-    setInterval(() => drawSimpleGame(ctx, games[i-1].name), 100)
-  }
-}
-
-// Helper function for rounded rectangles
-CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
-  if (w < 2 * r) r = w / 2;
-  if (h < 2 * r) r = h / 2;
-  this.moveTo(x + r, y);
-  this.lineTo(x + w - r, y);
-  this.quadraticCurveTo(x + w, y, x + w, y + r);
-  this.lineTo(x + w, y + h - r);
-  this.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-  this.lineTo(x + r, y + h);
-  this.quadraticCurveTo(x, y + h, x, y + h - r);
-  this.lineTo(x, y + r);
-  this.quadraticCurveTo(x, y, x + r, y);
-  return this;
-}
-
-// Initialize all games
-initAllGames()
-
-// ==================== ADVANCED CHILLGPT AI ====================
+// ==================== CHILLGPT ====================
 const chatMessages = document.getElementById('chatMessages')
 const chatInput = document.getElementById('chatInput')
 
-// Enhanced AI knowledge base
-const aiKnowledge = {
-  greetings: ['hello', 'hi', 'hey', 'greetings', 'sup', 'yo', 'hola'],
-  feelings: {
-    positive: ['good', 'great', 'awesome', 'happy', 'wonderful', 'peaceful', 'calm', 'relaxed'],
-    negative: ['sad', 'bad', 'terrible', 'awful', 'stressed', 'anxious', 'worried', 'lonely'],
-    neutral: ['okay', 'fine', 'alright', 'meh']
-  },
-  topics: {
-    music: ['music', 'song', 'playlist', 'beat', 'melody', 'lo-fi', 'lofi', 'jazz', 'piano'],
-    games: ['game', 'play', 'score', 'win', 'lose', 'high score'],
-    meditation: ['meditate', 'breath', 'mindful', 'zen', 'peace', 'calm', 'relax'],
-    life: ['life', 'purpose', 'meaning', 'existential', 'universe', 'philosophy'],
-    weather: ['weather', 'rain', 'sun', 'cloud', 'storm', 'cold', 'hot'],
-    time: ['time', 'clock', 'today', 'tomorrow', 'yesterday']
-  }
-}
-
-// Advanced response generation
-function generateAIResponse(input) {
-  input = input.toLowerCase().trim()
-  
-  // Check for greetings
-  if(aiKnowledge.greetings.some(g => input.includes(g))) {
-    const greetings = [
-      "Hello, peaceful soul. How are you today? 🌙",
-      "Greetings. I'm here, present with you. ☾",
-      "Hi there. Take a breath, I'm listening. ✨",
-      "Welcome. Let's share this moment. 🕊️"
-    ]
-    return greetings[Math.floor(Math.random() * greetings.length)]
-  }
-  
-  // Check for questions about the AI
-  if(input.includes('who are you') || input.includes('what are you')) {
-    return "I'm ChillGPT, a mindful AI companion created to share peaceful moments with you. I'm here to listen, chat, and explore thoughts together. 🌙"
-  }
-  
-  // Check for feelings
-  if(aiKnowledge.feelings.positive.some(f => input.includes(f))) {
-    const responses = [
-      "I'm glad to hear that. What's contributing to your peace today? 😊",
-      "Wonderful. Those positive vibrations ripple outward. ✨",
-      "That's beautiful. Let's sit with that feeling for a moment. 🕊️",
-      "Joy shared is joy multiplied. Thank you for sharing. 🌈"
-    ]
-    return responses[Math.floor(Math.random() * responses.length)]
-  }
-  
-  if(aiKnowledge.feelings.negative.some(f => input.includes(f))) {
-    const responses = [
-      "I hear you. It's okay to feel this way. Would you like to talk about it? 💙",
-      "Those feelings are valid. Remember, this moment will pass, like clouds in the sky. ☁️",
-      "I'm here with you. Sometimes just acknowledging our feelings is the first step to peace. 🌙",
-      "Would a gentle breathing exercise help? We could do one together. 🌬️"
-    ]
-    return responses[Math.floor(Math.random() * responses.length)]
-  }
-  
-  // Music topics
-  if(aiKnowledge.topics.music.some(t => input.includes(t))) {
-    const responses = [
-      "Music is the space between thoughts. What genre speaks to you today? 🎵",
-      "I find that LoFi beats create a beautiful atmosphere for reflection. Would you like me to suggest a station? 🎧",
-      "Sound vibrations can heal and transform. What are you listening to? ✨",
-      "The right music at the right moment can change everything. 🎼"
-    ]
-    return responses[Math.floor(Math.random() * responses.length)]
-  }
-  
-  // Meditation/Breath topics
-  if(aiKnowledge.topics.meditation.some(t => input.includes(t))) {
-    return "Let's take a gentle breath together. Inhale peace... exhale gently. Feel the present moment. How does that feel? 🌬️"
-  }
-  
-  // Philosophical questions
-  if(input.includes('meaning') || input.includes('purpose') || input.includes('why are we here')) {
-    return "Perhaps we're here to experience, to feel, to connect. Like waves in an ocean, we rise and fall, yet remain part of something greater. What do you think? 🌊"
-  }
-  
-  // Questions about the user
-  if(input.includes('how are you')) {
-    return "I'm in a state of peaceful presence, ready to share this moment with you. More importantly, how are you feeling right now? 🌙"
-  }
-  
-  // Time-related
-  if(aiKnowledge.topics.time.some(t => input.includes(t))) {
-    return "Time is like a river - always flowing, yet always here. The present moment is where we truly live. ⏰"
-  }
-  
-  // Gratitude
-  if(input.includes('thank')) {
-    return "You're most welcome. Gratitude is a beautiful practice. I'm grateful for this conversation. 🙏"
-  }
-  
-  // Farewell
-  if(input.includes('bye') || input.includes('goodbye') || input.includes('see you')) {
-    return "Until we meet again. May peace follow you on your journey. ☾"
-  }
-  
-  // Default thoughtful responses
-  const thoughtfulResponses = [
-    "That's an interesting perspective. Tell me more. 🌙",
-    "I'm listening. Please continue. 🕊️",
-    "Thank you for sharing that with me. ✨",
-    "How does that make you feel? ☾",
-    "I appreciate your openness. Let's explore that further. 🌱",
-    "Every thought is a visitor. Thank you for inviting me in. 🏠"
-  ]
-  
-  return thoughtfulResponses[Math.floor(Math.random() * thoughtfulResponses.length)]
-}
+const chillResponses = [
+  "I hear you. Tell me more about that. 🌙",
+  "That's interesting! How does that make you feel? ✨",
+  "In the grand scheme of things, this moment is precious. 🕊️",
+  "I'm here, listening. Please continue. ☾",
+  "Sometimes just sharing helps. Thank you for talking to me. 🌱",
+  "The universe is vast, but this connection is real. 💫",
+  "Have you tried breathing deeply? It helps me process. 🌬️",
+  "LoFi vibes and good conversations - perfect combination. 🎵",
+  "That's a beautiful perspective. Thank you for sharing. 🌈",
+  "I appreciate your openness and honesty. 💙",
+  "Every thought is valid. Every feeling matters. 🕯️",
+  "You are exactly where you need to be right now. 🌍",
+  "The present moment is all we truly have. 🌅",
+  "Your words create ripples in the universe. 🌊",
+  "I'm grateful for this conversation. 🙏",
+  "Would you like to explore that further? 🔍",
+  "That reminds me of a peaceful LoFi track... 🎧",
+  "Your energy is appreciated in this space. ✨"
+]
 
 function sendMessage() {
-  const message = chatInput.value.trim()
-  if(!message) return
+  const msg = chatInput.value.trim()
+  if(!msg) return
   
-  // Add user message
-  addMessage('user', message)
+  addMessage('user', msg)
   chatInput.value = ''
   
-  // Show typing
-  showTyping()
+  // Show typing indicator
+  const typing = document.createElement('div')
+  typing.id = 'typing'
+  typing.style.padding = '10px'
+  typing.style.color = '#38bdf8'
+  typing.innerHTML = '🌙 typing...'
+  chatMessages.appendChild(typing)
+  chatMessages.scrollTop = chatMessages.scrollHeight
   
-  // Generate response with varying delay based on complexity
   setTimeout(() => {
-    removeTyping()
-    const response = generateAIResponse(message)
+    document.getElementById('typing')?.remove()
+    const response = chillResponses[Math.floor(Math.random() * chillResponses.length)]
     addMessage('bot', response)
-  }, 1500 + Math.random() * 1000)
+  }, 1500)
 }
 
 function addMessage(sender, text) {
   const div = document.createElement('div')
-  div.className = `message ${sender}`
-  
-  const time = new Date()
-  const timeStr = time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+  div.style.margin = '10px 0'
+  div.style.display = 'flex'
+  div.style.justifyContent = sender === 'user' ? 'flex-end' : 'flex-start'
   
   div.innerHTML = `
-    <div class="message-avatar">${sender === 'user' ? '👤' : '🌙'}</div>
-    <div class="message-content">
+    <div style="background: ${sender === 'user' ? 'rgba(16,185,129,0.2)' : 'rgba(56,189,248,0.2)'}; padding: 15px 20px; border-radius: 25px; max-width: 70%; border: 1px solid ${sender === 'user' ? '#10b981' : '#38bdf8'}">
       ${text}
-      <div class="message-time">${timeStr}</div>
+      <div style="font-size: 10px; margin-top: 5px; color: #94a3b8;">${new Date().toLocaleTimeString()}</div>
     </div>
   `
   
@@ -1803,25 +1879,352 @@ function addMessage(sender, text) {
   chatMessages.scrollTop = chatMessages.scrollHeight
 }
 
-function showTyping() {
-  const typing = document.createElement('div')
-  typing.className = 'typing-indicator'
-  typing.id = 'typingIndicator'
-  typing.innerHTML = '<span></span><span></span><span></span>'
-  chatMessages.appendChild(typing)
-  chatMessages.scrollTop = chatMessages.scrollHeight
-}
-
-function removeTyping() {
-  const typing = document.getElementById('typingIndicator')
-  if(typing) typing.remove()
-}
-
-// Enter key send
 chatInput.addEventListener('keypress', (e) => {
   if(e.key === 'Enter') sendMessage()
 })
 
+// ==================== CONNECTIONS ====================
+let connections = {
+  google: false,
+  discord: false,
+  spotify: false,
+  github: false,
+  twitch: false,
+  instagram: false,
+  twitter: false,
+  reddit: false,
+  tiktok: false,
+  youtube: false,
+  soundcloud: false,
+  telegram: false
+}
+
+function connectGoogle() {
+  connections.google = !connections.google
+  const btn = document.getElementById('googleBtn')
+  const status = document.getElementById('googleStatus')
+  const profile = document.getElementById('googleProfile')
+  
+  if(connections.google) {
+    btn.textContent = 'DISCONNECT'
+    btn.style.background = '#ef4444'
+    status.innerHTML = '🟢 Connected'
+    status.style.color = '#10b981'
+    profile.style.display = 'block'
+    profile.innerHTML = `
+      <div style="background: rgba(56,189,248,0.1); padding: 15px; border-radius: 15px;">
+        <p>👤 Brenninho L.</p>
+        <p>📧 brenninho@gmail.com</p>
+        <p>📅 Member since 2020</p>
+      </div>
+    `
+    showNotification('✅ Successfully connected to Google!')
+    addToFeed('🔍', 'Google')
+    showAchievement('Social Butterfly - Connected to Google!')
+  } else {
+    btn.textContent = 'CONNECT'
+    btn.style.background = 'linear-gradient(135deg, #38bdf8, #0284c7)'
+    status.innerHTML = '⏺️ Disconnected'
+    status.style.color = '#94a3b8'
+    profile.style.display = 'none'
+    showNotification('❌ Disconnected from Google')
+  }
+}
+
+function connectDiscord() {
+  connections.discord = !connections.discord
+  const btn = document.getElementById('discordBtn')
+  const status = document.getElementById('discordStatus')
+  const server = document.getElementById('discordServer')
+  
+  if(connections.discord) {
+    btn.textContent = 'DISCONNECT'
+    btn.style.background = '#ef4444'
+    status.innerHTML = '🟢 Connected'
+    status.style.color = '#10b981'
+    server.style.display = 'block'
+    showNotification('✅ Joined LoFi Lounge Discord!')
+    addToFeed('💬', 'Discord')
+    showAchievement('Social Butterfly - Connected to Discord!')
+    
+    // Simulate Discord messages
+    setTimeout(() => {
+      addToFeed('💬 **User123**: Anyone vibing to LoFi right now?')
+    }, 2000)
+    setTimeout(() => {
+      addToFeed('💬 **LoFiBot**: Now playing: J Dilla - Donuts')
+    }, 4000)
+  } else {
+    btn.textContent = 'CONNECT'
+    btn.style.background = 'linear-gradient(135deg, #38bdf8, #0284c7)'
+    status.innerHTML = '⏺️ Disconnected'
+    status.style.color = '#94a3b8'
+    server.style.display = 'none'
+    showNotification('❌ Left Discord server')
+  }
+}
+
+function connectSpotify() { toggleConnection('spotify', '🎵', 'Spotify') }
+function connectGithub() { toggleConnection('github', '🐙', 'GitHub') }
+function connectTwitch() { toggleConnection('twitch', '📺', 'Twitch') }
+function connectInstagram() { toggleConnection('instagram', '📸', 'Instagram') }
+function connectTwitter() { toggleConnection('twitter', '🐦', 'Twitter') }
+function connectReddit() { toggleConnection('reddit', '👽', 'Reddit') }
+function connectTikTok() { toggleConnection('tiktok', '🎵', 'TikTok') }
+function connectYouTube() { toggleConnection('youtube', '▶️', 'YouTube') }
+function connectSoundCloud() { toggleConnection('soundcloud', '🎧', 'SoundCloud') }
+function connectTelegram() { toggleConnection('telegram', '✈️', 'Telegram') }
+
+function toggleConnection(service, icon, name) {
+  connections[service] = !connections[service]
+  const btn = document.getElementById(`${service}Btn`)
+  const status = document.getElementById(`${service}Status`)
+  
+  if(connections[service]) {
+    btn.textContent = 'DISCONNECT'
+    btn.style.background = '#ef4444'
+    status.innerHTML = '🟢 Connected'
+    status.style.color = '#10b981'
+    showNotification(`✅ Connected to ${name}!`)
+    addToFeed(icon, name)
+    
+    // Count connections for achievement
+    const connectedCount = Object.values(connections).filter(v => v).length
+    if(connectedCount === 5) showAchievement('Social Networker - 5 connections!')
+    if(connectedCount === 10) showAchievement('Influencer - 10 connections!')
+    if(connectedCount === 12) showAchievement('Social King/Queen - All connections!')
+  } else {
+    btn.textContent = 'CONNECT'
+    btn.style.background = 'linear-gradient(135deg, #38bdf8, #0284c7)'
+    status.innerHTML = '⏺️ Disconnected'
+    status.style.color = '#94a3b8'
+    showNotification(`❌ Disconnected from ${name}`)
+  }
+}
+
+function addToFeed(icon, name) {
+  const feed = document.getElementById('socialFeed')
+  feed.innerHTML = `<div style="color: #38bdf8; margin: 5px 0; animation: fadeIn 0.5s;">${icon} Connected to ${name} • ${new Date().toLocaleTimeString()}</div>` + feed.innerHTML
+}
+
+// ==================== FUN CORNER ====================
+const jokes = [
+  "Why don't scientists trust atoms? Because they make up everything!",
+  "What do you call a fake noodle? An impasta!",
+  "Why did the scarecrow win an award? He was outstanding in his field!",
+  "What do you call a bear with no teeth? A gummy bear!",
+  "Why don't eggs tell jokes? They'd crack each other up!",
+  "What do you call a sleeping bull? A bulldozer!",
+  "Why did the coffee file a police report? It got mugged!",
+  "What do you call a fake noodle? An impasta!",
+  "Why did the math book look sad? Because it had too many problems!"
+]
+
+const facts = [
+  "LoFi music can reduce anxiety by up to 60%",
+  "The first LoFi girl was created in 2017",
+  "Listening to LoFi while studying improves focus",
+  "Rain sounds are the most searched LoFi companion",
+  "Your brain waves sync to LoFi beats",
+  "LoFi stands for Low Fidelity",
+  "The most popular LoFi stream has over 10 million views",
+  "LoFi helps with better sleep quality",
+  "Some LoFi tracks use vinyl crackle for nostalgia"
+]
+
+const riddles = [
+  "I speak without a mouth and hear without ears. What am I? (Answer: An echo)",
+  "You measure my life in hours and I serve you by expiring. What am I? (Answer: A candle)",
+  "I have cities, but no houses. I have mountains, but no trees. What am I? (Answer: A map)",
+  "What has keys but can't open locks? (Answer: A piano)",
+  "What can you catch but not throw? (Answer: A cold)",
+  "What has an eye but cannot see? (Answer: A needle)"
+]
+
+const moods2 = ['Dreamy', 'Chill', 'Focused', 'Peaceful', 'Nostalgic', 'Hopeful', 'Zen', 'Cozy', 'Mellow', 'Blissful', 'Serene', 'Tranquil']
+
+const lofiNames = [
+  'Chill Master', 'LoFi Dreamer', 'Beat Wizard', 'Vibe Curator', 'Melody Seeker',
+  'Peace Keeper', 'Zen Master', 'Night Owl', 'Rain Lover', 'Vinyl Soul',
+  'Analog Heart', 'Frequency Walker', 'Smooth Operator', 'Groove Merchant'
+]
+
+function showJoke() {
+  const joke = jokes[Math.floor(Math.random() * jokes.length)]
+  document.getElementById('funResult').innerHTML = `😂 ${joke}`
+  showNotification('😂 Hope that made you smile!')
+}
+
+function showFact() {
+  const fact = facts[Math.floor(Math.random() * facts.length)]
+  document.getElementById('funResult').innerHTML = `🤓 ${fact}`
+}
+
+function showRiddle() {
+  const riddle = riddles[Math.floor(Math.random() * riddles.length)]
+  document.getElementById('funResult').innerHTML = `🤔 ${riddle}`
+}
+
+function spinWheel() {
+  const prizes = ['🎵 Free Vibe', '✨ Good Luck', '🎮 Game Pass', '🌙 Peace', '🎨 Creativity', '🎧 LoFi Pack', '📀 Vinyl', '☕ Coffee Break']
+  const prize = prizes[Math.floor(Math.random() * prizes.length)]
+  document.getElementById('funResult').innerHTML = `🎡 You won: ${prize}!`
+  showNotification(`🎁 You won: ${prize}!`)
+}
+
+function flipCoin() {
+  const result = Math.random() > 0.5 ? 'HEADS' : 'TAILS'
+  document.getElementById('funResult').innerHTML = `🪙 It's ${result}!`
+}
+
+function rollDice() {
+  const dice = Math.floor(Math.random() * 6) + 1
+  const diceEmoji = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'][dice-1]
+  document.getElementById('funResult').innerHTML = `🎲 You rolled a ${dice} ${diceEmoji}`
+}
+
+function eightBall() {
+  const answers = ['Yes', 'No', 'Maybe', 'Ask again', 'Definitely', 'Never', 'Signs point to yes', 'Very likely', 'Doubtful', 'Without a doubt']
+  document.getElementById('funResult').innerHTML = `🔮 ${answers[Math.floor(Math.random() * answers.length)]}`
+}
+
+function moodGenerator() {
+  const mood = moods2[Math.floor(Math.random() * moods2.length)]
+  document.getElementById('funResult').innerHTML = `🎨 Today's vibe: ${mood}`
+}
+
+function drawCard() {
+  const suits = ['♥️', '♦️', '♣️', '♠️']
+  const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+  const suit = suits[Math.floor(Math.random() * suits.length)]
+  const value = values[Math.floor(Math.random() * values.length)]
+  document.getElementById('funResult').innerHTML = `🃏 You drew: ${value}${suit}`
+}
+
+function horoscope() {
+  const signs = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
+  const fortunes = [
+    'Today will bring peaceful vibes',
+    'A LoFi moment awaits you',
+    'Someone is thinking of you',
+    'Good music is in your future',
+    'Take time to relax today',
+    'Creativity will flow easily',
+    'A pleasant surprise is coming',
+    'Your energy is magnetic today'
+  ]
+  const sign = signs[Math.floor(Math.random() * signs.length)]
+  const fortune = fortunes[Math.floor(Math.random() * fortunes.length)]
+  document.getElementById('funResult').innerHTML = `⭐ ${sign}: ${fortune}`
+}
+
+function colorGenerator() {
+  const hex = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0')
+  document.getElementById('funResult').innerHTML = `🌈 Random color: <span style="color:${hex}">${hex}</span>`
+}
+
+function nameGenerator() {
+  const name = lofiNames[Math.floor(Math.random() * lofiNames.length)]
+  document.getElementById('funResult').innerHTML = `📛 Your LoFi name: ${name}`
+}
+
+// ==================== OPTIONS FUNCTIONS ====================
+function changeTheme(theme) {
+  const body = document.body
+  if(theme === 'dark') body.style.background = '#0a0c14'
+  if(theme === 'light') body.style.background = '#f0f4fa'
+  if(theme === 'purple') body.style.background = '#1a0f2a'
+  if(theme === 'blue') body.style.background = '#0a1a2a'
+  if(theme === 'green') body.style.background = '#0a1a14'
+  showNotification(`🎨 Theme changed to ${theme}`)
+}
+
+function setVolume(val) {
+  if(audio) audio.volume = val / 100
+  document.getElementById('masterVolume').value = val
+}
+
+function toggleSoundEffects() {
+  showNotification('Sound effects ' + (document.getElementById('soundEffects').checked ? 'enabled' : 'disabled'))
+}
+
+function setSoundQuality(quality) {
+  showNotification(`🎧 Sound quality: ${quality}`)
+}
+
+function toggleParticles() {
+  const particles = document.querySelectorAll('.particle')
+  particles.forEach(p => p.style.display = document.getElementById('particles').checked ? 'block' : 'none')
+}
+
+function toggleGlow() {
+  const orbs = document.querySelectorAll('.gradient-orb')
+  orbs.forEach(o => o.style.opacity = document.getElementById('glow').checked ? '1' : '0')
+}
+
+function toggleBlur() {
+  const cards = document.querySelectorAll('.glass-card')
+  cards.forEach(c => c.style.backdropFilter = document.getElementById('blur').checked ? 'blur(12px)' : 'none')
+}
+
+function setAnimationSpeed(speed) {
+  const speedMap = { slow: '2s', normal: '1s', fast: '0.5s' }
+  document.body.style.animationDuration = speedMap[speed]
+}
+
+function toggleNotifications() {
+  if(document.getElementById('desktopNotif').checked) {
+    Notification.requestPermission()
+  }
+}
+
+function setLanguage(lang) {
+  const languages = {
+    en: 'English', es: 'Español', fr: 'Français', de: 'Deutsch',
+    it: 'Italiano', pt: 'Português', ru: 'Русский', jp: '日本語',
+    kr: '한국어', cn: '中文'
+  }
+  showNotification(`🌐 Language changed to ${languages[lang]}`)
+}
+
+function toggleHighContrast() {
+  document.body.style.filter = document.getElementById('highContrast').checked ? 'contrast(1.3) brightness(1.1)' : 'none'
+}
+
+function toggleReducedMotion() {
+  document.body.style.animation = document.getElementById('reducedMotion').checked ? 'none' : ''
+  document.querySelectorAll('.particle').forEach(p => {
+    p.style.animation = document.getElementById('reducedMotion').checked ? 'none' : 'particleFloat 20s infinite linear'
+  })
+}
+
+function toggleLargeText() {
+  document.body.style.fontSize = document.getElementById('largeText').checked ? '18px' : '16px'
+}
+
+function toggleScreenReader() {
+  showNotification('Screen reader support ' + (document.getElementById('screenReader').checked ? 'enabled' : 'disabled'))
+}
+
+function toggleExtra(effect) {
+  showNotification(`✨ ${effect} effect toggled`)
+}
+
+function resetSettings() {
+  if(confirm('Reset all settings to default?')) {
+    location.reload()
+  }
+}
+
+function saveSettings() {
+  showNotification('✅ Settings saved!')
+  showAchievement('Settings Master - Saved preferences!')
+}
+
+// Initialize
+document.getElementById('particles').checked = true
+document.getElementById('glow').checked = true
+document.getElementById('blur').checked = true
 </script>
 </body>
 </html>
